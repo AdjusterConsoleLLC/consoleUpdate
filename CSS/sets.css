@@ -1,0 +1,38 @@
+.collectionInner {
+	display: flex;
+	position: absolute;
+	flex-direction: column;
+	background: none;
+	box-shadow: none;
+	transition: top .3s ease-in-out;
+	z-index: 10;
+}
+
+.collectionInner.showit {
+	top: 20px;
+	transition: top .3s ease-in-out;
+}
+
+.collectionInner.hideit {
+	top: -315px;
+	transition: top .3s ease-in-out;
+}
+
+.hidden {
+	display: none;
+}
+
+.hidden.show {
+	display: block;
+}
+
+#setMove {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+#setMove button {
+	width: 100px;
+}

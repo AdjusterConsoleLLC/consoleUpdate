@@ -1,0 +1,116 @@
+.intakeboxes {
+	font-size: 14px;
+	overflow: hidden;
+	padding: 1px;
+	padding-left: 10px;
+	width: 195px;
+	height: 30px;
+	line-height: 30px;
+	resize: none;
+	border-radius: var(--ACSmallBorderRadius);
+	position: absolute;
+	display: block;
+}
+
+#partname7 {
+	top: 200px;
+	left: 10px;
+	display: none;
+}
+
+#partname6 {
+	top: 240px;
+	left: 10px;
+	display: none;
+}
+
+#partname5 {
+	top: 280px;
+	left: 10px;
+	display: none;
+}
+
+#partname4 {
+	top: 320px;
+	left: 10px;
+	display: none;
+}
+
+#partname3 {
+	top: 360px;
+	left: 10px;
+	display: none;
+}
+
+#partname2 {
+	top: 400px;
+	left: 10px;
+	display: none;
+}
+
+#partname1 {
+	top: 440px;
+	left: 10px;
+}
+
+#partnum {
+	top: 440px;
+	left: 230px;
+	width: 110px;
+}
+
+#rfprice {
+	top: 480px;
+	left: 10px;
+	width: 110px;
+}
+
+#msrp {
+	top: 520px;
+	left: 10px;
+	width: 110px;
+}
+
+.senditnow {
+	font-size: 17px;
+	width: 65px;
+	height: 60px;
+	padding: 0;
+}
+
+#e001 {
+	top: 490px;
+	left: 145px;
+}
+
+#e002 {
+	top: 490px;
+	left: 225px;
+}
+
+#e003 {
+	top: 490px;
+	left: 305px;
+}
+
+#e004 {
+	top: 320px;
+	left: 250px;
+	width: 90px;
+	height: 40px;
+}
+
+#e005 {
+	top: 265px;
+	left: 250px;
+	width: 90px;
+	height: 40px;
+}
+
+#e006 {
+	top: 375px;
+	left: 250px;
+	width: 90px;
+	height: 40px;
+}
+

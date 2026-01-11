@@ -1,0 +1,558 @@
+:root {
+	--boxShadow: ;
+	--border: ;
+	--borderRadius: ;
+	--buttonBackgroundColor: ;
+	--buttonTextColor: ;
+	--pageBackgroundColor: ;
+	--accentColor: ;
+	--text-outline: ;
+	--pageTextColor: rgba(250, 250, 250, 1);
+	--primaryD1: rgb(13, 39, 74);
+	--primaryD: rgb(29, 77, 139);
+	--primary: rgb(42, 105, 170);
+	--primaryA: rgb(39, 113, 189);
+	--primaryL: rgb(59, 140, 206);
+	--primaryL1: rgb(190, 223, 244);
+	--comp: rgb(170,107,42);
+	--ACInsetShadow: inset 0px -1px 0px rgba(0, 0, 0, 0.4);
+	--ACSmallShadow: 0px 1px 2px rgba(0, 0, 0, 0.4), 0px 2px 4px -1px rgba(0, 0, 0, 0.4);
+	--ACMediumShadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.4), 0px 4px 8px -2px rgba(0, 0, 0, 0.5);
+	--ACLargeShadow: 0px 4px 8px -2px rgba(0, 0, 0, 0.5), 0px 8px 16px -4px rgba(0, 0, 0, 0.6);
+	--ACborder: ;
+	--ACSmallBorderRadius: 5px;
+	--ACLargeBorderRadius: 10px;
+	--ACTextColor: rgba(250, 250, 250, 1);
+	--ACbuttonBackgroundColor: ;
+	--ACbuttonTextColor: rgb(250, 250, 250);
+	--ACBackgroundColor: rgb(29, 77, 139);
+	--ACaccentColor: ;
+}
+
+* {
+	box-sizing: border-box;
+	font-family: Verdana, sans-serif;
+}
+
+html {
+	width: 100vw;
+	height: 100vh;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	width: 100vw;
+	height: 100vh;
+	background: var(--pageBackgroundColor);
+	overflow: hidden;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+textarea {
+	z-index: 0;
+}
+
+button {
+	z-index: 1;
+}
+
+.mainButton {
+	overflow: hidden;
+	font-size: 17px;
+	cursor: pointer;
+	transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
+	position: absolute;
+	display: block;
+	outline: none;
+	margin: 0px;
+	border:  var(--border);
+	border-radius: var(--borderRadius);
+	color: var(--buttonTextColor);
+	background: var(--buttonBackgroundColor);
+	box-shadow: var(--boxShadow);
+	text-shadow: var(--text-outline);
+}
+
+.mainButton:active {
+    transform: translateY(1px) scale(0.99);
+}
+
+.mainButton:hover {
+	background: color-mix(in srgb, var(--buttonBackgroundColor) 85%, black 15%);
+}
+
+.mainDiv {
+	z-index: 1;
+	background: rgb(238, 238, 238);
+	border: 1px solid rgb(85, 85, 85);
+	box-shadow: var(--ACInsetShadow), var(--ACLargeShadow);
+	border-radius: var(--ACLargeBorderRadius);
+	transition: all .2s ease-in-out;
+	cursor: auto;
+	font-size: 16px;
+}
+
+.mainDiv h1 {
+	font-size: 24px;
+	font-weight: bold;
+	padding-bottom: 20px;
+	text-align: center;
+	color: rgb(85, 85, 85);
+	border-bottom: 2px solid rgb(85, 85, 85);
+	width: 70%;
+}
+
+h1.h1 {
+	font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    text-align: center;
+    border-bottom: 2px solid #777;
+	color: #555;
+    width: 70%;
+	margin-bottom: 0;
+}
+
+h2.h2 {
+	font-size: 21px;
+    text-align: center;
+	color: #555;
+	margin: 15px;
+}
+
+.textspace {
+	font-size: 14px;
+	top: 550px;
+	left: 10px;
+	width: 320px;
+	height: 350px;
+	border: 1px solid rgb(238, 238, 238);
+}
+
+.textareamain {
+	left: 0px;
+	top: 0px;
+	width: 330px;
+	height: 145px;
+	z-index: 1;
+	margin: 10px;
+	resize: none;
+	font-size: 15px;
+	border: none;
+	background: white;
+}
+
+textarea.textspace, div.textareamain, .userTextareas {
+	outline: none;
+	position: absolute;
+	display: block;
+	box-shadow: 0px 2px 6px -1px rgba(0, 0, 0, 0.5);
+	background: rgb(250, 250, 250);
+	resize: none;
+	border-radius: var(--ACSmallBorderRadius);
+	padding: 10px;
+	transition: box-shadow 0.2s ease-in-out;
+	font-family: arial, sans-serif;
+	line-height: 1.3;
+	white-space: normal;
+}
+
+#userTextarea1.userTextareas, #userTextarea2.userTextareas, #userTextarea3.userTextareas {
+	display: none;
+	z-index: 0;
+	cursor: text;
+}
+
+.mainTextInput {
+	padding: 4px;
+	border-radius: var(--ACSmallBorderRadius);
+	border: 2px solid rgb(238, 238, 238);
+	background: rgb(250, 250, 250);
+	box-shadow: 0px 2px 6px -1px rgba(0, 0, 0, 0.5);
+	outline: none;
+	transition: box-shadow 0.2s ease-in-out;
+}
+
+.mainTextInput:focus, .textspace:focus, .textareamain:focus {
+	box-shadow: 0px 4px 10px -3px rgba(0, 0, 0, 0.5);
+}
+
+.largeTextInput {
+	padding: 10px;
+	border-radius: var(--ACLargeBorderRadius);
+	border: 1px solid rgb(238, 238, 238);
+	background: rgb(250, 250, 250);
+	box-shadow: var(--ACMediumShadow);
+	outline: none;
+	transition: box-shadow 0.2s ease-in-out;
+}
+
+.largeTextInput:focus {
+	box-shadow: var(--ACLargeShadow);
+}
+
+.standard {
+	border: 1px solid rgba(102, 102, 102, 1);
+	border-radius: var(--ACSmallBorderRadius);
+	box-shadow: var(--ACInsetShadow), var(--ACSmallShadow);
+	outline: none;
+	transition: all 0.2s ease-in-out;
+	background: #fff;
+	padding: 10px 15px;
+	cursor: pointer;
+}
+
+.standard:hover {
+	background: rgba(250, 250, 250, 0.7);
+}
+
+.standard:active {
+    box-shadow: 
+        inset 0px 1px 2px rgba(0, 0, 0, 0.4),
+        0px 1px 2px rgba(0, 0, 0, 0.3);
+    transform: translateY(2px);
+    background: rgba(250, 250, 250, 0.4);
+    border-color: rgba(80, 80, 80, 1);
+}
+
+.mainSelect {
+	padding: 4px;
+	box-shadow: var(--ACSmallShadow);
+	border-radius: var(--ACSmallBorderRadius);
+	outline: none;
+}
+
+.autoSize {
+	width: auto;
+	height: auto;
+	padding: 10px 15px; 
+}
+
+.blockAbsolute {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.fullWidth {
+	width: 100%
+}
+
+.overlayDiv {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	display: none;
+	background: rgba(0, 0, 0, 0.6);
+	z-index: 10;
+	margin: 0;
+	padding: 0;
+	border: none;
+	box-shadow: none;
+}
+
+#phoneNumbers {
+	text-align: center;
+	position: absolute;
+	display: block;
+	color: var(--pageTextColor);
+	font-size: 17px;
+	font-weight: bold;
+	outline: none;
+	width: 140px;
+	height: 325px;
+}
+
+#phoneNumbers p {
+    pointer-events: none;
+}
+
+#userCanvas {
+	display: none;
+}
+
+#imageInputDiv {
+	position: absolute;
+	top: 10px;
+	right: 15px;
+	width: 90px;
+	background: none;
+	box-shadow: none;
+	overflow: hidden;
+}
+
+#imageInput {
+	background: none;
+	box-shadow: none;
+}
+
+#imageContainer2 {
+	position: absolute;
+	top: 290px;
+	left: 535px;
+	display: block;
+	border: none;
+	resize: both;
+	overflow: hidden;
+	width: 300px;
+	height: auto;
+	background: none;
+	box-shadow: none;
+	aspect-ratio: attr(data-aspect-ratio);
+}
+
+#retrievedImage {
+	width: 100%;
+	height: auto;
+}
+
+#imageInputDiv label {
+	font-size: 10px;
+	color: var(--buttonTextColor);
+}
+
+#EDITarea {
+	display: none;
+}
+
+.hideME {
+	left: -100px;
+	top: -100px;
+	display: block;
+	position: absolute;
+}
+
+.astext {
+	display: block;
+	position: absolute;
+	font-size: 15px;
+	background: none;
+	box-shadow: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	text-decoration: none;
+	text-shadow: none;
+	color: black;
+}
+
+#copy-notification {
+	position: fixed;
+	top: -55px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 150px;
+	height: 50px;
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: top 0.4s ease-in-out;
+	z-index: 1000;
+	box-shadow: var(--ACInsetShadow), var(--ACSmallShadow);
+	border-radius: var(--ACSmallBorderRadius);
+	background: rgb(250, 250, 250);
+	border: 1px solid rgb(102, 102, 102);
+}
+
+@keyframes Shine {
+	0% {
+		text-shadow:
+			1px 1px 1px black,
+			-1px -1px 1px black,
+			-1px 1px 1px black,
+			1px -1px 1px black,
+			0px 0px 2px red,
+			0px 0px 5px red,
+			0px 0px 7px red,
+			0px 0px 10px red;
+	}
+	50% {
+		text-shadow:
+			1px 1px 1px black,
+			-1px -1px 1px black,
+			-1px 1px 1px black,
+			1px -1px 1px black,
+			0px 0px 4px red,
+			0px 0px 7px red,
+			0px 0px 10px red,
+			0px 0px 15px red,
+			0px 0px 20px red;
+	}
+}
+
+#toggleDrag  {
+	top: 0;
+	width: 100%;
+	height: 25px;
+	position: absolute;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	font-size: 25px;
+	white-space: nowrap;
+	cursor: grab !important;
+}
+
+#toggleDrag p {
+	margin: 0;
+	color: rgba(0, 0, 0, 0.5);
+	text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+	cursor: grab !important;
+}
+
+#toggleDrag:active {
+	cursor: grabbing !important;
+}
+
+#shadowToggle {
+	cursor: grab !important;
+	top: 530px;
+	left: 30px;
+	height: 380px;
+	width: 270px;
+	background: none;
+	display: none;
+	position: absolute;
+	box-shadow: none;
+	margin: 0;
+	padding: 0;
+	border-radius: var(--ACSmallBorderRadius);
+	z-index: -1;
+}
+
+#shadowToggle.show {
+	cursor: grabbing !important;
+	display: block;
+	border: 2px dashed red;
+	z-index: 14;
+}
+
+#toggleSwitchesHeader {
+	top: 530px;
+	left: 30px;
+	height: 380px;
+	width: 270px;
+	border: 1px solid rgba(102, 102, 102, 1);
+	border-radius: var(--ACSmallBorderRadius);
+	box-shadow: var(--ACInsetShadow), var(--ACSmallShadow);
+	outline: none;
+	transition: all 0.2s ease-in-out;
+	background: #fff;
+	display: none;
+	position: absolute;
+	padding: 50px 15px 15px 15px;
+	align-items: flex-end;
+	justify-content: center;
+	cursor: default !important;
+}
+
+#toggleSwitches {
+	height: 100%;
+	width: 100%;
+	padding-left: 10px;
+	border-radius: var(--ACSmallBorderRadius);
+	z-index: 3;
+	overflow: auto;
+	display: block;
+	background: rgb(238, 238, 238);
+	user-select: none;
+}
+
+#toggleSwitchesHeader.show {
+	display: flex;
+	z-index: 13;
+}
+
+.switch, .appearSwitch {
+	position: relative;
+	display: inline-block;
+	width: 34px;
+	height: 16px;
+}
+
+.berth {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	width: auto;
+	cursor: pointer;
+}
+
+.berth p {
+	margin: 10px 0;
+}
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .4s;
+	padding-right: 25px;
+}
+
+.sd {
+	display: block;
+	margin: 5px;
+	margin-left: 0px;
+	float: left;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 14px;
+	width: 14px;
+	left: 1px;
+	bottom: 1px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+input:checked+.slider {
+	background-color: var(--primaryL);
+}
+
+input:focus+.slider {
+	box-shadow: 0 0 2px var(--primaryL);
+}
+
+input:checked+.slider:before {
+	-webkit-transform: translateX(18px);
+	-ms-transform: translateX(18px);
+	transform: translateX(18px);
+}
+
+.slider.round {
+	border-radius: 18px;
+}
+
+#switchdivIndiv input {
+	margin-right: 35px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
+}
+
+.toggle {
+	width: auto;
+}

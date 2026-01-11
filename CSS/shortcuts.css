@@ -1,0 +1,363 @@
+#shortcutOverlay.show {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#shortcutPanel {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	padding-left: 10px;
+	overflow-y: auto;
+	background: rgb(238, 238, 238);
+	color: black;
+	border-radius: 0px;
+	z-index: 1;
+}
+
+#closeShortcut {
+	position: absolute;
+	right: 10px;
+	top: 0px;
+	text-decoration: none;
+	color: red;
+	font-size: 25px;
+}
+
+#storedShortcutDisplay {
+	width: 100%;
+	border: 2px solid white;
+	border-radius: 7px;
+	overflow: auto;
+}
+
+.storedShortcut {
+}
+
+#shortcutList {
+	border-radius: var(--ACSmallBorderRadius);
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+#shortcutList li {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 15px;
+	gap: 5px;
+}
+
+#shortcutList li.backgroundD, #shortcutList li.backgroundE {
+	color: black;
+	font-size: 14px;
+}
+
+#shortcutList li.backgroundD span, #shortcutList li.backgroundE span {
+	width: 25%;
+}
+
+#shortcutList li.backgroundD span button, #shortcutList li.backgroundE span button {
+	margin-left: 10px; 
+}
+
+#shortcutList li.backgroundD span:last-child, #shortcutList li.backgroundE span:last-child {
+	width: 20%;
+}
+
+#listP {
+	width: 100%;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-left: 25px;
+	padding-right: 115px;
+}
+
+#listP span {
+	font-size: 17px;
+	font-weight: bold;
+}
+
+#shortcutEditDialog {
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 500px;
+	width: 800px;
+	background: var(--primary);
+	color: white;
+}
+
+#shortcutEditDialog.show {
+	display: flex;
+	position: absolute;
+	z-index: 1;
+	justify-content: space-between;
+	color: white;
+	background: var(--primary);
+}
+
+#shortcutButtons {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	width: 100%;
+	margin: 20px;
+}
+
+#shortcutButtons button {
+	width: 80px;
+}
+
+#shortcutDemoButtons {
+    display: flex;
+    align-items: center;
+    position: absolute;
+	width: 100%;
+}
+
+#shortcutAdminBtns {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+	justify-content: center;
+}
+
+.key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+	height: 35px;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+	font-size: 14px;
+    background: var(--primary);
+	position: absolute;
+	text-transform: uppercase;
+	transform: translateY(0px);
+	z-index: 3;
+	transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.key.active {
+    background-color: white;
+	transform: translateY(100px);
+    color: var(--primary);
+}
+
+#shortcutNonModDiv.keystreak {
+	box-shadow: 0 0 20px 15px white;
+	transition: box-shadow 0.3s ease;
+}
+
+.connector {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(to right, white 0%, white 100%);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+	transition: background-size 0s, transform 0s;
+	transform: translateY(0px);
+	z-index: 2;
+}
+
+.connector.active {
+    background-size: 100% 100%;
+	transition: background-size 0.3s ease-in-out 0.1s;
+}
+
+#editDialogHeader {
+	font-size: 20px;
+	border-bottom: 2px solid white;
+	width: 70%;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+#shortcutInputDiv, #shortcutNameDiv {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	position: absolute;
+	bottom: 90px;
+	width: 150px;
+	font-size: 16px;
+}
+
+#shortcutNameDiv {
+	right: 60px;
+}
+
+#shortcutInputDiv {
+	left: 60px;
+}
+
+#shortcutInput, #shortcutNameDisp {
+	background: none;
+	box-shadow: none;
+	padding: 5px;
+	border: none;
+	color: white;
+	text-align: center;
+	width: 250px;
+	font-size: 13px;
+	height: 20px;
+	text-align: center;
+}
+
+#shortcutAltDiv {
+	top: 100px;
+	left: 50px;
+}
+
+#shortcutControlDiv {
+	top: 100px;
+	left: 250px;
+}
+
+#shortcutShiftDiv {
+	top: 100px;
+	left: 450px;
+}
+
+#shortcutNonModDiv {
+	top: 100px;
+	left: 650px;
+}
+
+.shortcutInputLabel {
+	width: 70%;
+	padding-bottom: 5px;
+	text-align: center;
+	border-bottom: 1px solid white;
+}
+
+#shortcutCheatSheets {
+	display: none;
+}
+
+#shortcutCheatSheets.show {
+	display: block;
+	position: absolute;
+	top: 350px;
+	right: 10px;
+	background: none;
+	cursor: default !important;
+}
+
+.cheatSheet {
+	display: none;
+}
+
+.cheatSheet .cheatInner {
+	display: none;
+}
+
+.cheatSheet.show {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 25px;
+	width: 100%;
+}
+
+.cheatSheet.show .cheatInner {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+	background: rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+}
+
+ .cheatSheet.show .cheatInner ul {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	margin-top: 20px;
+	margin-bottom: 55px;
+}
+
+.cheatSheet.show .cheatInner ul li {
+	list-style: none;
+	font-size: 14px;
+	display: flex;
+	width: 100%;
+	color: white;
+	padding: 5px;
+	justify-content: space-between;
+}
+
+#cheatBtns {
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
+}
+
+#cheatBtns button {
+	padding: 8px 12px;
+}
+
+#closeCheatSheet {
+	position: absolute;
+	right: 5px;
+	top: 0px;
+	text-decoration: none;
+	color: red;
+	font-size: 20px;
+}
+
+#shortcutCheatSheetsHeader {
+	cursor: grab;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	color: white;
+	text-align: center;
+}
+
+#shortcutCheatSheetsHeader.active {
+	cursor: grabbing;
+}
+
+.shortcutTip {
+	position: absolute;
+	display: none;
+	z-index: 9999;
+	pointer-events: none;
+	font-size: 12px;
+	background: #222;
+	color: #fff;
+	padding: 4px 8px;
+	border-radius: 4px;
+	white-space: nowrap;
+}

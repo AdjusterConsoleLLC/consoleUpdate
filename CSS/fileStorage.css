@@ -1,0 +1,173 @@
+#storagePanelBacker.show {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+#storagePanel {
+	min-height: 30%;
+	padding: 20px;
+	max-height: 90%;
+	margin-top: 15%;
+	overflow: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	width: 75%; 
+}
+
+#storedFileDisplay {
+	border: 2px solid #888;
+	border-radius: 7px;
+	padding: 10px;
+}
+
+#storedFileDisplay h2 {
+	border-bottom: 1px solid #aaa;
+}
+
+#fileList li {
+	display: flex;
+	width: 100%;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 5px;
+	gap: 5px;
+}
+
+#closeFileStorage {
+	margin-right: -20px;
+	margin-top: -20px;
+	text-decoration: none;
+	color: red;
+	right: 20px;
+	top: 20px;
+	font-size: 30px;
+	width: 100%;
+	text-align: right;
+}
+
+#fileAccess1 {
+	border-top: 2px solid var(--accentColor);
+	border-right: 2px solid var(--accentColor);
+	border-left: 2px solid var(--accentColor);
+	border-radius: var(--borderRadius) var(--borderRadius) 0px 0px;
+	right: 140px;
+	bottom: -5px;
+	background: var(--pageBackgroundColor);
+	font-size: 17px;
+	cursor: pointer;
+	text-shadow: var(--text-outline);
+	color: var(--buttonTextColor);
+}
+
+#fileAccess {
+	left: 780px;
+	top: 880px;
+	cursor: pointer;
+}
+
+#offCanvasFileList {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	gap: 5px;
+	align-items: flex-start;
+	padding: 20px;
+	height: 100%;
+	top: 0;
+	right: -100%;
+	transition: right 0.5s ease-in-out, opacity 0s 1s;
+	opacity: 0;
+}
+
+#storedFiles {
+	width: 100%;
+	font-size: 20px;
+	color: #555;
+}
+
+#offCanvasFileList.show {
+	transition: right 0.5s ease-in-out, opacity 0s 0s;
+	right: 0;
+	opacity: 1;
+	z-index: 1000;
+}
+
+#offCanvasFileList ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#offCanvasFileList li {
+	width: auto;
+	padding: 10px;
+	cursor: pointer;
+}
+
+#offCanvasFileList li:hover {
+	background: rgba(0, 0, 0, 0.3);
+}
+
+#closeDisplayedFile {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	text-decoration: none;
+	color: red;
+	font-size: 30px;
+	cursor: pointer;
+}
+
+#fileOverlayDiv {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+.imageDiv {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+	border-radius: 10px;
+	background-color: #ffffff;
+}
+
+.pdfDiv {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+	border-radius: 10px;
+	overflow: hidden;
+	background-color: #ffffff;
+}
+
+.iframeDiv {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+}

@@ -1,0 +1,734 @@
+#setupAssistantBacker {
+	background: #fff;
+	z-index: 10;
+	display: none;
+	align-items: center;
+	justify-content: flex-start;
+	height: 100%;
+	width: 100%;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+#setupAssistantBacker.show {
+	display: flex;	
+}
+
+#setupColumn {
+	display: flex;
+	border-bottom: 2px solid white;
+	width: 145px;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	position: absolute;
+	top: 10px;
+	left: 15px;
+	border-radius: 0;
+	box-shadow: -1px 10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+
+.buttonTab {
+	width: 100%;
+	height: 55px;
+	background: #ddd;
+	margin: 0;
+	padding: 12px 0;
+	transition: background 0.3s ease-in-out, padding 0.3s ease-in-out, color 0.3s ease-in-out, border 0.3s ease-in-out;
+	border: none;
+	border-top: 2px solid white;
+	border-right: 2px solid white;
+	cursor: pointer;
+	font-size: 16px;
+	outline: none;
+}
+
+#setupAppearanceBtn.active {
+	border-bottom: none;
+}
+
+.buttonTab.active + .buttonTab {
+	border-top: none;
+}
+
+.buttonTab:hover { 
+	background: #ccc;
+}
+
+.buttonTab.active {
+	background: #eee;
+	border-right: none;
+	padding: 15px 0;
+	border-top: 2px solid white;
+	border-bottom: 2px solid white;
+}
+
+#setupCenterDiv.displayWrapper {
+	display: flex;
+	flex-direction: column;
+	background: #eee;
+	overflow: visible;
+	padding: 10px;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 20px;
+	border-radius: 0 0 5px 5px;
+	border-top: 2px solid white;
+	border-right: 1px solid rgba(0, 0, 0, 0.1);
+	margin-left: 160px;
+	margin-right: 10px;
+	margin-top: 10px;
+	min-height: 50%;
+	width: calc(100% - 169px);
+	box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
+}
+
+#setupNavButtons {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	position: absolute;
+	left: 10px;
+	bottom: 50px;
+	width: 130px;
+	padding: 10px;
+}
+
+#setupNavButtons button {
+	width: 100px;
+}
+
+#setupBasic, #setupInfo {
+	flex-wrap: wrap;
+	justify-content: center;
+	overflow: visible;
+	width: 100%;
+}
+
+#slideContainer.buttonContainer {
+	padding: 10px 0;
+}
+
+#setupBasic .buttonContainer, #setupInfo .buttonContainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	width: 100%;
+}
+
+.inputOutputWrapper, .infoWrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 5px 0;
+	padding: 5px 10px;
+	width: 300px;
+	overflow: visible;
+	background: var(--primary);
+    color: white;
+	outline: 2px solid rgba(0, 0, 0, 0);
+    border: 2px solid var(--primaryD);
+    border-radius: var(--ACSmallBorderRadius);
+    transition: box-shadow 0.2s ease-in-out, outline 0.2s ease-in-out, background 0.2s ease-in-out, border 0.2s ease-in-out;
+    box-shadow: var(--ACInsetShadow), var(--ACSmallShadow);
+}
+
+.inputOutputWrapper:focus-within, .slideWrapper:focus-within, .infoWrapper:focus-within, .setParent .setChild:focus-within, .setGrandchildren:focus-within {
+	outline: 2px solid rgba(0, 0, 0, 1);
+	box-shadow: var(--ACMediumShadow);
+	background: var(--primaryA);
+	border: 2px solid rgba(255, 255, 255, 1);
+}
+
+.declareButton {
+	font-weight: bold;
+	width: calc(100% - 145px);
+}
+
+.infoWrapper .declareButton {
+	text-align: center;
+}
+
+.declareChildButton {
+	font-weight: bold;
+}
+
+.declareGC {
+	font-weight: normal;
+	font-size: 12px;
+}
+
+.displaySetup {
+	display: none;
+	overflow: hidden;
+	z-index: -1;
+}
+
+.displaySetup.active {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow-y: auto;
+	z-index: 2;
+}
+
+.buttonContainer div label {
+	margin: 5px;
+}
+
+.buttonContainer div select {
+	margin-left: 10px;
+}
+
+.buttonContainer {
+	overflow: visible;
+	padding: 10px 0;
+	width: 100%;
+}
+
+.buttonContainer div input[type="text"], .buttonContainer div textarea {
+	outline: none;
+    padding: 4px;
+    margin-top: 5px;
+    border-radius: var(--ACSmallBorderRadius);
+    border: 2px solid rgb(237, 237, 237);
+    transition: box-shadow 0.2s ease-in-out, height 0.25s ease-in-out 0.1s;
+    box-shadow: 0px 2px 6px -1px rgba(0, 0, 0, 0.5);
+	width: 276px;
+}
+
+.buttonContainer textarea {
+    margin-bottom: 5px;
+	height: 75px;
+	transition: height .2s ease-in-out;
+}
+
+.buttonContainer .setGrandchildren textarea {
+	margin-bottom: 10px;
+}
+
+#slideContainer.buttonContainer div textarea, #slideContainer.buttonContainer div input[type="text"] {
+	width: 240px;
+}
+
+#setupSlide {
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+#slideContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: calc(100% - 10px);
+	flex-wrap: wrap;
+}
+
+.slideWrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 0 5px;
+	padding-top: 10px;
+	width: 100%;
+	margin: 0;
+	margin-bottom: 5px;
+	background: var(--primary);
+    color: white;
+    border: 2px solid var(--primaryD);
+    border-radius: var(--ACSmallBorderRadius);
+    transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: var(--ACInsetShadow), var(--ACSmallShadow);
+}
+
+.assistHeaderType {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.buttonOutputType span, .buttonOutputType button {
+	font-size: 14px;	
+}
+
+.eachSlideChild {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	margin: 5px;
+}
+
+.slideChilds {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.buttonOutputType {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	margin: 5px;
+}
+
+.typeClass {
+	background: none;
+	border-radius: 5px;
+	outline: 1px solid white;
+	color: white;
+	font-size: 14px;
+	padding: 3px 6px;
+	border: none;
+}
+
+.typeClass:hover {
+	background: rgba(0, 0, 0, 0.3); 
+}
+
+.typeClass.useClassType {
+	background: white;
+	color: var(--primary);
+}
+
+#setupBt1Set.active, #setupBt2Set.active {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	overflow: visible;
+}
+
+#setupBt1Set {
+	overflow: visible;
+}
+
+#btnSet1Container, #btnSet2Container {
+	padding: 0;
+}
+
+.childContainerCol {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+	gap: 10px;
+}
+
+.childContainerRow {
+	display: flex;
+	width: 100%;
+	height: 810px;
+}
+
+.childContainer {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	width: 100%;
+	overflow: visible;
+	gap: 10px;
+}
+
+.setParent {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+	overflow: visible;
+	gap: 10px;
+}
+
+.setChildOuter {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-direction: column;
+	margin-top: 15px;
+	width: 50%;
+	gap: 10px;
+	overflow: visible;
+}
+
+.setParent .setChild {
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+	max-width: 300px;
+	padding: 5px;
+	background: var(--primary);
+    color: white;
+    border: 2px solid var(--primaryD);
+    border-radius: var(--ACSmallBorderRadius);
+    transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: var(--ACInsetShadow), var(--ACSmallShadow);
+}
+
+.setGrandchildren {
+	display: flex;
+	background: var(--primary);
+    color: white;
+    border: 2px solid var(--primaryD);
+    border-radius: var(--ACSmallBorderRadius);
+    transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: var(--ACInsetShadow), var(--ACSmallShadow);
+	max-width: 300px;
+	padding: 0px 10px;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+	overflow: visible;
+}
+
+#set1HTMLPre .grandchildContainer {
+	position: initial;
+	transform: translateX(0);
+}
+
+#set1HTMLPre .grandchildContainer.show {
+	opacity: 1;
+}
+
+.grandchildContainer {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 300px;
+	overflow: visible;
+	gap: 10px;
+	transform: translateX(120%);
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out
+}
+
+.grandchildContainer.active  {
+	transform: translateX(0);
+	opacity: 1;
+}
+
+.grandchildContainer.exit {
+	transform: translateY(120%);
+	opacity: 0;
+}
+
+.grandchildContainer h2 {
+	font-size: 20px;
+	font-weight: bold;
+	padding-bottom: 10px;
+	text-align: center;
+	color: rgb(85, 85, 85);
+	border-bottom: 2px solid #777;
+	width: 70%;
+	margin: 5px;
+	margin-top: 15px;
+}
+
+#setupTextarea {
+	flex-direction: column;
+	width: 100%;
+}
+
+.textareaWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+	align-items: center;
+	background: var(--primary);
+    color: white;
+    border: 2px solid var(--primaryD);
+    border-radius: var(--ACSmallBorderRadius);
+    transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: var(--ACInsetShadow), var(--ACSmallShadow);
+}
+
+.orientationWrapper {
+    display: flex;
+    gap: 10px;
+}
+	
+.textareaWrapper select {
+	width: 135px;
+}
+
+.textareaWrapper radio {
+	width: 16px;
+}
+
+.scaledTextarea {
+	background-color: green;
+    position: absolute;
+}
+
+.programRepresentation {
+	border: 1px solid black;
+	position: relative;
+	background-color: white;
+	margin-top: 10px;
+	background: rgb(255, 255, 255);
+	border-radius: var(--ACSmallBorderRadius);
+}
+
+#textareaContainer.buttonContainer {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	justify-content: space-evenly;
+}
+
+.promptDivStyle {
+    display: none;
+}
+
+.promptOverlayDiv #loadPromptDiv.promptDivStyle {
+	background: var(--primary);
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    padding: 30px;
+    min-width: 350px;
+	min-height: 200px;
+    text-align: center;
+}
+
+.promptOverlayDiv {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+}
+
+#loadPromptDiv p {
+margin-bottom: 20px;	
+}
+
+#setupInfoButtons {
+	max-width: 80%;
+	max-height: 80%;
+	overflow: auto;
+	min-width: 250px;
+	min-height: 150px;
+}
+
+#userTextarea1:focus, #userTextarea2:focus, #userTextarea3:focus, #textarea2:focus {
+	z-index: 4;
+}
+
+.confirmationDiv {
+	display: none;
+	position: absolute;
+	z-index: 10;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 20px 30px;
+	flex-direction: column;
+    align-items: center;
+}
+
+.confirmationDiv.show {
+	display: flex;
+	z-index: 12;
+}
+
+.confirmationDiv ul {
+	margin-top: 0;
+	margin-right: auto;
+}
+
+#okButton {
+    min-width: 120px;
+}
+
+.buttonConfirmDiv {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+	padding-top: 10px;
+	padding-bottom: 30px;
+}
+
+#set1HTMLPre.hide, #set2HTMLPre.hide {
+	display: none;
+}
+
+#set1GCToggle, #set2C1Toggle, #set2C2Toggle, #set2C3Toggle {
+	margin: 5px;
+}
+
+#setupBt1Set #set1Chart, #setupBt2Set #set2Chart {
+	border: none;
+}
+
+#set1HTMLPre #set1Chart, #set2HTMLPre #set2Chart {
+	position: absolute;
+	top: 30px;
+	right: 20px;
+}
+
+div.setParent label.setName {
+	margin: 0;
+	width: 100%;
+    text-align: center;
+}
+
+div.setParent label.setName input[type="text"] {
+	width: 276px;
+}
+
+.labelSpan {
+	display: inline-block;
+}
+
+#btnSet1Container #chartDiv, #btnSet2Container #chartDiv {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 0;
+	left: 0;
+	width: 768px;
+	height: 425px;
+	margin-left: 170px;
+	margin-right: 10px;
+	margin-top: 30px;
+	z-index: 10;
+	box-shadow: var(--ACMediumShadow);
+	border-radius: var(--ACSmallBorderRadius);
+	overflow: hidden;
+	background: white;
+}
+
+#chartCloseBtn {
+    position: absolute;
+    display: inline-block;
+    color: red;
+    font-size: 26px;
+    top: 30px;
+    right: 30px;
+    text-decoration: none;
+    transform: scale(1);
+	font-weight: normal;
+    transition: transform 0.1s ease-in-out;
+	z-index: 11;
+}
+
+#setupBt2Set > #chartCloseBtn {
+	right: 40px;
+}
+
+#chartCloseBtn:hover {
+	transform: scale(1.05);
+	font-weight: bold;
+	clip-path: inset(20% 10% 20% 10%);
+}
+
+#storageCrap {
+	background: radial-gradient(19px 35px at right, rgba(255, 255, 0, 0.5) 0%, rgba(255, 255, 0, 0) 70%);
+    background: radial-gradient(19px 35px at right, rgba(12, 166, 35, 0.5) 0%, rgba(12, 166, 35, 0) 70%);
+    background: radial-gradient(19px 35px at right, rgba(255, 0, 0, 0.5) 0%, rgba(255, 0, 0, 0) 70%);
+}
+
+#statusContainer {
+	position: absolute;
+	left: -16px;
+	top: 0;
+	transition: box-shadow 0.2s ease-in-out;
+}
+
+.statusDiv {
+	position: absolute;
+	display: block;
+	width: 30px;
+	height: 40px;
+}
+
+#basicStatus.statusDiv {
+	top: 18px;
+}
+
+#slideStatus.statusDiv {	
+	top: 73px;
+}
+
+#set1Status.statusDiv {
+	top: 128px;
+}
+
+#set2Status.statusDiv {
+	top: 182px;
+}
+
+#textareaStatus.statusDiv {
+	top: 238px
+}
+
+#infoStatus.statusDiv {
+	top: 294px;
+}
+
+#loadPromptDiv div {
+    display: flex;
+    gap: 20px;
+}
+
+#loadPromptDiv button {
+    min-width = 120px;
+}
+
+#deleteProgressOverlay {
+	display: none;
+}
+
+#deleteProgressOverlay.show {
+	display: flex;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 1000;
+}
+
+#deleteProgressDiv {
+	background: var(--primary);
+	color: white;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	align-items: center;
+	justify-content: center;
+	padding: 25px 15px;
+}

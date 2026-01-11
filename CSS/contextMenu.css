@@ -1,0 +1,270 @@
+#context-menu {
+	position: fixed;
+	width: 140px;
+	background: #1b1a1a;
+	border-radius: 5px;
+	transform: scale(0);
+	transform-origin: top left;
+	box-shadow: var(--ACInsetShadow), var(--ACSmallShadow);
+}
+
+#context-menu.visible {
+	transform: scale(1);
+	z-index: 25;
+	transition: transform 0.3s ease-in-out;
+}
+
+#context-menu .item {
+	box-shadow: none;
+	background: #1b1a1a;
+	padding: 6px;
+	font-size: 12px;
+	color: #eee;
+	cursor: pointer;
+	border-radius: 0px;
+	padding-left: 16px;
+}
+
+#context-menu #displayItem, #context-menu #newButtonItem {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+#context-menu .item:last-child {
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+#context-menu .item:hover {
+	background: #343434;
+	box-shadow: none;
+}
+
+#disEdit {
+	display: none;
+	position: absolute;
+	top: 260px;
+	left: 285px;
+	height: 450px;
+	width: 390px;
+	padding-top: 10px;
+}
+
+#disEdit.show {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	user-select: none;
+	z-index: 13;
+	cursor: default !important;
+}
+
+#dragBar {
+	top: 0;
+	width: 100%;
+	height: 25px;
+	position: absolute;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	font-size: 25px;
+	white-space: nowrap;
+	cursor: grab !important;
+}
+
+#dragBar p {
+	margin: 0;
+	color: rgba(0, 0, 0, 0.5);
+	text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+	letter-spacing: -6px;
+	cursor: grab !important;
+}
+
+#shadowShape {
+	cursor: grab !important;
+    height: 450px;
+    width: 390px;
+	top: 260px;
+	left: 285px;
+	background: none;
+	display: none;
+	position: absolute;
+	box-shadow: none;
+	margin: 0;
+	padding: 0;
+	border-radius: 10px;
+	z-index: -1;
+}
+
+#shadowShape.show {
+	cursor: grabbing !important;
+	display: block;
+	border: 2px dashed red;
+	z-index: 14;
+}
+
+#dragBar:active {
+	cursor: grabbing !important;
+}
+
+.editHeader {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+	border-bottom: 2px solid #777;
+	width: 70%;
+}
+
+#rightPage, #leftPage {
+	background: none;
+	border: none;
+	box-shadow: none;
+	outline: none
+}
+
+#editPageHeader {
+	width: 50%;
+	font-weight: bold;
+	text-align: center;
+	color: rgb(85, 85, 85);
+}
+
+.editPage {
+    opacity: 0;
+    transform: translateX(100%);
+    position: absolute;
+    width: 100%;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+	gap: 25px;
+}
+
+.editPage.active {
+	opacity: 1;
+    transform: translateX(0);
+    position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#editorButtons {
+    opacity: 1;
+    transform: translateX(0);
+    position: relative;
+	display: flex;
+	align-items: center;
+	width: 75%;
+	justify-content: space-between;
+	max-height: 100%;
+}
+
+.controlCol {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	height: 100%;
+	gap: 5px;
+}
+
+#editorButtons .controlCol:last-of-type {
+    margin-left: 15px;
+}
+
+#editorButtons .controlCol:last-of-type button {
+    width: 100%;
+}
+
+#ContentEditor {
+	height: 175px;
+	width: 80%;
+	color: black;
+	text-shadow: none;
+	overflow: auto;
+	user-select: text;
+	cursor: text !important;
+	word-break: normal;	
+	white-space: pre-wrap;
+}
+
+#mimic {
+	position: relative;
+	cursor: text;
+	z-index: 2;
+	outline: none;
+	user-select: text;
+	word-break: normal;	
+	white-space: pre-wrap;
+}
+
+#mimicHouse {
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0px 3px 2px rgba(0,0,0,0.5), 0px 5px 10px -1px rgba(0,0,0,0.4);
+	background: var(--pageBackgroundColor);
+	padding: 15px;
+	width: calc(100% - 20px);
+    height: 120px;
+}
+
+.editBtnsContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 75%;
+	margin: 20px;
+}
+
+#infoDiv .editBtnsContainer {
+	margin: 20px;
+}
+
+.shiny.snap {
+	z-index: 15000000 !important;
+}
+
+.shiny {
+	animation: moveShine 5s infinite linear;
+}
+
+@keyframes moveShine {
+	0% {
+		box-shadow:
+			1px 1px 1px red,
+			-1px -1px 1px red,
+			-1px 1px 1px red,
+			1px -1px 1px red;
+	}
+	25% {
+		box-shadow:
+			1px 1px 1px red,
+			-1px -1px 1px red,
+			-1px 1px 1px red,
+			1px -1px 1px red,
+			0px 0px 10px red,
+			0px 0px 15px red,
+			0px 0px 30px red;
+	}
+	50% {
+		box-shadow:
+			1px 1px 1px red,
+			-1px -1px 1px red,
+			-1px 1px 1px red,
+			1px -1px 1px red;
+	}
+	100% {
+		box-shadow:
+			1px 1px 1px red,
+			-1px -1px 1px red,
+			-1px 1px 1px red,
+			1px -1px 1px red;
+	}
+}
+
+.standard.contextControl:disabled {
+	display: none;
+}

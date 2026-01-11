@@ -1,0 +1,168 @@
+#appearDiv {
+	font-size: 16px;
+	height: 100%;
+	width: 100%;
+	position: relative;
+	display: none;
+	z-index: 100;
+	background: #eee;
+	align-items: flex-start;
+}
+
+#appearDiv.show {
+	display: flex;
+}
+
+#appearDiv input:disabled {
+	opacity: 0.1;
+}
+
+.place {
+	display: none;
+}
+
+.buttonRow {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 5px;
+}
+
+.buttonRow span {
+	min-width: 55px;
+	text-align: center;
+}
+
+#spacer {
+	margin: 0 17px;
+	min-width: 0;
+	width: 0;
+}
+
+.propGroupColumn.hide {
+	display: inline-block;
+	visibility: hidden;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.onePropColumn, .propGroupColumn {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.onePropColumn {
+	margin: 5px;
+}
+
+.groupHeader {
+	margin-bottom: 10px;
+}
+
+.propGroupColumn {
+	gap: 5px;
+}
+
+#firstColumn {
+	justify-content: space-between;
+}
+
+#boxShadowGroup {
+	margin-top: 20px;
+}
+
+#buttonGroup, #mainColorGroup, #textGroup {
+	margin-top: 25px;
+}
+
+#borderGroup {
+	margin-bottom: 30px;
+}
+
+#shadowSelector {
+	justify-content: center;
+}
+
+#shadowCount {
+	margin: 0 10px;
+}
+
+#presetContainer {
+	position: absolute;
+	bottom: 25px;
+	left: 31%;
+	gap: 30px;
+}
+
+#saveContainer {
+	position: absolute;
+	bottom: 25px;
+	right: 10%;
+	gap: 30px;
+}
+
+.buttonRow input[type="number"] {
+	width: 38px;
+	padding: 5px;
+	font-size: 14px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	text-align: center;
+	margin: 0 5px;
+}
+
+#previewBtn {
+	height: 60px;
+	width: 130px;
+	top: calc(50% - 50px);
+	left: 50%;
+	transform: translateX(-50%);
+	position: absolute;
+	display: block;
+	font-size: 20px;
+	transition: background 0.3s ease-in-out;
+}
+
+#previewTextDiv {
+	height: 60px;
+	top: calc(50% + 25px);
+	left: 50%;
+	transform: translateX(-50%);
+	position: absolute;
+	display: block;
+	font-size: 20px;
+	transition: background 0.3s ease-in-out;
+}
+
+#previewDiv {
+	width: 250px;
+	height: 150px;
+	top: 40%;
+	left: 55%;
+	position: absolute;
+	display: block;
+}
+
+#cssOutput {
+	top: calc(40% + 160px);
+	left: 55%;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	font-size: 14px;
+}
+
+.standard.compact {
+	width: 100px;
+	height: 30px;
+	padding: 0;
+} 
+
+.standard.mini {
+	padding: 5px 10px;
+	font-size: 14px;
+	width: auto;
+	height: auto;
+}

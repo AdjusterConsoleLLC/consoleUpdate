@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" href="CSS/standards.css?v=20250911221808">
+		<link rel="stylesheet" href="CSS/main.css?v=20250911221808">
+		<link rel="stylesheet" href="CSS/tutorials.css?v=20250911221808">
+		<link rel="stylesheet" href="CSS/Buttons.css?v=20250911221808">
+		<link rel="stylesheet" href="CSS/CustomButtons.css?v=20250911221808">
+		<link rel="stylesheet" href="CSS/AppearOpts.css?v=20250911221808">
+		<link rel="stylesheet" href="CSS/sets.css?v=20250911221808">
+		<link rel="stylesheet" href="CSS/Stable.css?v=20250911221808">
+		<link rel="stylesheet" href="CSS/setMaker.css?v=20250911221808">
+		<link rel="stylesheet" href="CSS/contextMenu.css?v=20250911221808">
+		<link rel="stylesheet" href="CSS/linebacker.css?v=20250911221808">
+		<link rel="stylesheet" href="CSS/partsAndLabor.css?v=20250911221808">
+        <link rel="stylesheet" href="CSS/layoutProfiles.css?v=20250911221808">
+		<link rel="stylesheet" href="CSS/fileStorage.css?v=20250911221808">
+		<link rel="stylesheet" href="CSS/shortcuts.css?v=20250911221808">
+		<link rel="stylesheet" href="CSS/setupAssist.css?v=20250911221808">
+		<link rel="stylesheet" href="CSS/newAuthCSS.css?v=20250911221808">
+		<title>Adjuster Console</title>
+		<!--
+		<link rel="manifest" href="/manifest.webmanifest?v=20250911221808">
+		-->
+	</head>
+</script>
+<body>
+
+
+	<!-- New Buttons -->
+	<button id="authStartBtn" class="mainButton D R P A">Auth</button>
+
+
+	<!-- Red Outlines -->
+	<div id="shadowShape"></div>
+	<div id="shadowToggle"></div>
+
+
+	<!-- Layout Editor -->
+	<div id="layoutBacker" class="overlayDiv">
+		<div id="profileManagerContainer" class="mainDiv">
+			<a href="#" id="closeLayouts">&times;</a>
+			<h1 class="h1">Profile Manager</h1>
+			<div class="layoutGroup">
+				<input id="profileName" type="text" placeholder="Enter profile name" class="input-text" />
+				<div class="layoutRow">
+					<button id="newProfileBtn" class="standard btn">New Profile</button>
+				</div>
+			</div>
+			<div class="layoutGroup">
+				<select id="profileSelect" class="mainSelect">
+					<option value="">-- Select Profile --</option>
+				</select>
+				<div class="layoutRow">
+					<button id="cloneProfileBtn" class="standard btn">Clone Profile</button>
+					<button id="changeProfileBtn" class="standard btn">Change Profile</button>
+				</div>
+				<div class="layoutRow">
+					<button id="deleteProfileBtn" class="standard btn">Delete Profile</button>
+					<button id="resetProfileBtn" class="standard btn">Reset Profile</button>
+				</div>
+			</div>
+			<div class="layoutGroup">
+				<input id="renameProfileInput" type="text" placeholder="New profile name" class="input-text" />
+				<button id="renameProfileBtn" class="standard btn">Rename Profile</button>
+			</div>
+			<div class="layoutGroup">
+				<button id="cancelBtn" class="standard btn">Cancel</button>
+			</div>
+		</div>
+	</div>
+	<div id="profileModal" class="mainDiv"></div>
+
+
+	<!-- Toggle Menu -->
+	<div id="toggleSwitchesHeader" class="toggleContainer">
+		<div id="toggleDrag"><p>&#8759;&#8759;&#8759;&#8759;</p></div>
+		<div id="toggleSwitches"></div>
+	</div>
+
+
+	<!-- Profile Menu -->
+	<div id="profileDropMenu" class="profileDropdown">
+		<button class="profileDropdownButton">Select Profile</button>
+		<ul class="profileDropdownUL">
+		</ul>
+	</div>
+
+
+
+	
+	<!-- Copy Notification -->
+	<div id="copy-notification">Copied!</div>
+
+
+	<!-- Menu -->
+	<div class="dropdown">
+		<button id="LOCK1" class="dropdown-btn">&#x2666; Menu &#x2666;</button>
+		<ul id="settingsDrop" class="dropdown-menu">
+			<li id="appearance">&#x2666; Appearance &#x2666;</li>
+			<li id="layoutMenu">&#x2666; Profiles &#x2666;</li>
+			<li id="showShortcutEditor">&#x2666; Shortcuts &#x2666;</li>
+			<li id="showToggles">&#x2666; Toggle List &#x2666;</li>
+			<li id="masterResetMenu">&#x2666; Master Reset &#x2666;</li>
+		</ul>
+	</div>
+
+
+	<!-- Appearance Settings -->
+	<div id="appearDiv">
+		<div id="firstColumn" class="propGroupColumn height100per width25per">
+			<div id="boxShadowGroup" class="propGroupColumn">
+				<div id="shadowControls" class="onePropColumn width100per">
+					<div class="onePropColumn">
+						<span>Shadow</span>
+					</div>
+					<div id="shadowSelector" class="buttonRow width100per">
+						<button id="prevShadow" class="standard mini">&#11164;</button>
+						<div class="onePropColumn">
+							<span id="shadowCount"></span>
+						</div>
+						<button id="nextShadow" class="standard mini">&#11166;</button>
+					</div>
+					<div class="onePropColumn">
+						<button id="deleteShadow" class="standard compact">Delete</button>
+					</div>
+				</div>
+				<div class="onePropColumn">
+					<span class="groupHeader">Shadow Position</span>
+					<button id="yOffsetDecrement" class="standard mini">&#11165;</button>
+					<div class="buttonRow width100per">
+						<button id="xOffsetDecrement" class="standard mini">&#11164</button>
+						<span id="spacer"></span>
+						<button id="xOffsetIncrement" class="standard mini">&#11166;</button>
+					</div>
+					<button id="yOffsetIncrement" class="standard mini">&#11167;</button>
+				</div>
+				<div class="buttonRow width100per">
+					<button id="blurDecrement" class="standard mini">&#11167;</button>
+					<div class="onePropColumn">
+						<span>Blur</span>
+					</div>
+					<button id="blurIncrement" class="standard mini">&#11165;</button>
+				</div>
+				<div class="buttonRow width100per">
+					<button id="spreadDecrement" class="standard mini">&#11167;</button>
+					<div class="onePropColumn">
+						<span>Size</span>
+					</div>
+					<button id="spreadIncrement" class="standard mini">&#11165;</button>
+				</div>
+				<div class="onePropColumn">
+					<label for="shadowColor" class="groupHeader">Shadow Color</label>
+					<input id="shadowColor" type="color">
+				</div>
+				<div class="onePropColumn">
+					<label for="shadowColorOpacity">Opacity:</label>
+					<input type="range" id="shadowColorOpacity" min="0" max="100" value="100">
+				</div>
+				<div class="onePropColumn">
+					<span class="groupHeader">Inset</span>
+					<div class="toggle">
+						<label for="isInset" class="appearSwitch"><input type="checkbox" id="isInset"><span class="slider round"></span></label>
+					</div>
+				</div>
+			</div>
+			<div id="borderGroup" class="propGroupColumn">
+				<div class="onePropColumn">
+					<span class="groupHeader">Border</span>
+					<div class="toggle">
+						<label for="hasBorder" class="appearSwitch"><input type="checkbox" id="hasBorder"><span class="slider round"></span></label>
+					</div>
+				</div>
+				<div class="onePropColumn">
+					<label for="borderColor" class="groupHeader">Border Color</label>
+					<input id="borderColor" type="color">
+				</div>
+				<div class="onePropColumn">
+					<label for="borderColorOpacity">Opacity:</label>
+					<input type="range" id="borderColorOpacity" min="0" max="100">
+				</div>
+				<div class="buttonRow width100per">
+					<button id="borderThicknessDecrement" class="standard mini">&#11167;</button>
+					<div class="onePropColumn">
+						<span>Size</span>
+					</div>
+					<button id="borderThicknessIncrement" class="standard mini">&#11165;</button>
+				</div>
+				<div class="buttonRow width100per">
+					<button id="borderRadiusDecrement" class="standard mini">&#11167;</button>
+					<div class="onePropColumn">
+						<span>Radius</span>
+					</div>
+					<button id="borderRadiusIncrement" class="standard mini">&#11165;</button>
+				</div>
+			</div>
+		</div>
+		<div id="buttonGroup" class="propGroupColumn width25per height100per">
+			<div class="onePropColumn">
+				<label for="buttonBackgroundColor" class="groupHeader">Button Background:</label>
+				<input id="buttonBackgroundColor" type="color">
+			</div>
+			<div class="onePropColumn">
+				<span class="groupHeader">Gradient</span>
+				<div class="toggle">
+					<label for="hasGradient" class="appearSwitch"><input type="checkbox" id="hasGradient"><span class="slider round"></span></label>
+				</div>
+			</div>
+			<div class="buttonRow">
+				<div class="onePropColumn">
+					<label for="gradientStart" class="groupHeader">Start</label>
+					<input id="gradientStart" type="color">
+				</div>
+				<div class="onePropColumn">
+					<label for="gradientEnd" class="groupHeader">End</label>
+					<input id="gradientEnd" type="color">
+				</div>
+			</div>
+			<div class="buttonRow width100per">
+				<button id="angleDecrement" class="standard mini">&#11167;</button>
+				<div class="onePropColumn">
+					<span>Angle</span>
+				</div>
+				<button id="angleIncrement" class="standard mini">&#11165;</button>
+			</div>
+		</div>
+		<div id="textGroup" class="propGroupColumn width25per height100per">
+			<div class="onePropColumn">
+				<label for="textColor" class="groupHeader">Text Color</label>
+				<input id="textColor" type="color">
+			</div>
+			<div class="onePropColumn">
+				<span class="groupHeader">Text Outline</span>
+				<div class="toggle">
+					<label for="hasTextOutline" class="appearSwitch"><input type="checkbox" id="hasTextOutline"><span class="slider round"></span></label>
+				</div>
+			</div>
+			<div class="onePropColumn">
+				<label for="textOutlineColor" class="groupHeader">Text Outline Color:</label>
+				<input id="textOutlineColor" type="color">
+			</div>
+		</div>
+		<div id="mainColorGroup" class="propGroupColumn width25per height100per">
+			<div class="onePropColumn">
+				<label for="pageBackgroundColor" class="groupHeader">Page Background</label>
+				<input id="pageBackgroundColor" type="color">
+			</div>
+			<div class="onePropColumn">
+				<label for="pageTextColor" class="groupHeader">Page Text Color</label>
+				<input id="pageTextColor" type="color">
+			</div>
+			<div class="onePropColumn">
+				<label for="accentColor" class="groupHeader">Accent</label>
+				<input id="accentColor" type="color">
+			</div>
+			<div class="onePropColumn">
+				<label for="accentColorOpacity">Opacity:</label>
+				<input type="range" id="accentColorOpacity" min="0" max="100">
+			</div>
+		</div>
+		<div id="cssOutput"></div>
+		<div id="previewDiv">
+			<button id="previewBtn">Test Text</button>
+			<div id="previewTextDiv">Test Text</div>
+		</div>
+		<div id="saveContainer"  class="buttonRow">
+			<button id="setColors" class="standard">Save and Exit</button>
+			<button id="exitColor" class="standard">Cancel</button>
+		</div>
+		<div id="presetContainer" class="onePropColumn">
+			<button id="presetMaterial" class="standard">Material</button>
+			<button id="presetColorMorph" class="standard">ColorMorph</button>
+			<button id="presetGlassMorph" class="standard">GlassMorph</button>
+			<button id="defaultCircuit" class="standard">Circuit</button>
+			<button id="presetMinimal" class="standard">Minimal</button>
+		</div>
+	</div>
+
+
+	<!-- Simple Buttons -->
+<!-- 	<button id="b001" class="mainButton D R P C A">Button 1</button>
+	<button id="b002" class="mainButton D R P C A">Button 2</button>
+	<button id="b003" class="mainButton D R P C A">Button 3</button>
+	<button id="b004" class="mainButton D R P C A">Button 4</button>
+	<button id="b005" class="mainButton D R P C A">Button 5</button>
+	<button id="b006" class="mainButton D R P C A">Button 6</button>
+	<button id="b007" class="mainButton D R P C A">Button 7</button>
+	<button id="b008" class="mainButton D R P C A">Button 8</button> -->
+		
+
+	<!-- Slides -->
+	<!-- <div class="collectionContain blockAbsolute">
+		<button id="c001" class="mainButton D R P A">Slide 1</button>
+		<div id="c001_btns" class="hideit collectionInner">
+			<button id="c001_b001" class="mainButton D R C">Slide 1 Output1</button>
+			<button id="c001_b002" class="mainButton D R C">Slide 1 Output2</button>
+			<button id="c001_b003" class="mainButton D R C">Slide 1 Output3</button>
+		</div>
+	</div>
+	<div class="collectionContain blockAbsolute">
+		<button id="c002" class="mainButton D R P A">Slide 2</button>
+		<div id="c002_btns" class="hideit collectionInner">
+			<button id="c002_b001" class="mainButton D R C">Slide 2 Output1</button>
+			<button id="c002_b002" class="mainButton D R C">Slide 2 Output2</button>
+			<button id="c002_b003" class="mainButton D R C">Slide 2 Output3</button>
+		</div>
+	</div>
+	<div class="collectionContain blockAbsolute">
+		<button id="c003" class="mainButton D R P A">Slide 3</button>
+		<div id="c003_btns" class="hideit collectionInner">
+			<button id="c003_b001" class="mainButton D R C">Slide 3 Output1</button>
+			<button id="c003_b002" class="mainButton D R C">Slide 3 Output2</button>
+			<button id="c003_b003" class="mainButton D R C">Slide 3 Output3</button>
+		</div>
+	</div> -->
+
+
+	<!-- Note Set 1 -->	
+<!-- 	<div id="s001_main" class="A blockAbsolute">
+		<button id="s001" class="mainButton R D P">Set1</button>
+		<div id="s001_btns" class="blockAbsolute set_btns hidden">
+			<button id="s001_ss001" class="mainButton D R P">SubSet1</button>
+			<button id="s001_b001" class="mainButton D R P C">Output1</button>
+			<button id="s001_b002" class="mainButton D R P C">Output2</button>
+			<button id="s001_b003" class="mainButton D R P C">Output3</button>
+		</div>
+		<div id="s001_ss001_btns" class="set_btns hidden">
+			<button id="s001_ss001_b001" class="mainButton D R P C">SubSet1 Output1</button>
+			<button id="s001_ss001_b002" class="mainButton D R P C">SubSet1 Output2</button>
+			<button id="s001_ss001_b003" class="mainButton D R P C">SubSet1 Output3</button>
+			<button id="s001_ss001_b004" class="mainButton D R P C">SubSet1 Output4</button>
+		</div>
+	</div> -->
+		
+		
+	<!-- Note Set 2 -->	
+<!-- 	<div id="s002_main" class="A blockAbsolute">
+		<button id="s002" class="mainButton R D P">Set2</button>
+		<div id="s002_btns" class="hidden blockAbsolute set_btns">
+			<button id="s002_ss001" class="mainButton D R P">SubSet1</button>
+			<button id="s002_ss002" class="mainButton D R P">SubSet2</button>
+			<button id="s002_ss003" class="mainButton D R P">SubSet3</button>
+		</div>
+		<div id="s002_ss001_btns" class="hidden blockAbsolute set_btns">
+			<button id="s002_ss001_b001" class="mainButton D R P C">SubSet1 Output1</button>
+			<button id="s002_ss001_b002" class="mainButton D R P C">SubSet1 Output2</button>
+			<button id="s002_ss001_b003" class="mainButton D R P C">SubSet1 Output3</button>
+			<button id="s002_ss001_b004" class="mainButton D R P C">SubSet1 Output4</button>
+		</div>
+		<div id="s002_ss002_btns" class="hidden blockAbsolute set_btns">
+			<button id="s002_ss002_b001" class="mainButton D R P C">SubSet2 Output1</button>
+			<button id="s002_ss002_b002" class="mainButton D R P C">SubSet2 Output2</button>
+			<button id="s002_ss002_b003" class="mainButton D R P C">SubSet2 Output3</button>
+			<button id="s002_ss002_b004" class="mainButton D R P C">SubSet2 Output4</button>
+		</div>
+		<div id="s002_ss003_btns" class="hidden blockAbsolute set_btns">
+			<button id="s002_ss003_b001" class="mainButton D R P C">SubSet3 Output1</button>
+			<button id="s002_ss003_b002" class="mainButton D R P C">SubSet3 Output2</button>
+			<button id="s002_ss003_b003" class="mainButton D R P C">SubSet3 Output3</button>
+			<button id="s002_ss003_b004" class="mainButton D R P C">SubSet3 Output4</button>
+		</div>
+	</div> -->
+
+
+<!-- Parts and Labor -->
+<!-- 	<button id="part_labor_copy" class="mainButton D R P A">Copy P&L</button>
+	<button id="part_labor_reset" class="mainButton D R P A">Reset</button>
+	<button id="p001" class="mainButton D R P C A">OEM</button>
+	<button id="p002" class="mainButton D R P C A">AM</button>
+	<button id="p003" class="mainButton D R P A">Over 250</button>
+	<button id="p004" class="mainButton D R P C A">BULK</button>
+	<button id="p005" class="mainButton D R P C A">EVAC</button>
+	<button id="p006" class="mainButton D R P C A">ALIGN</button>
+	<button id="p007" class="mainButton D R P C A">LABOR</button>
+	<button id="p008" class="mainButton D R P C A">DIAG</button> -->
+
+
+	<!-- Textareas and Hidden  -->
+<!-- 	<div id="areaOne" class="A">
+		<div id="textarea1" contenteditable="true" class="textareamain">
+			CONTACT:&nbsp;&nbsp;<br>
+			<span class="boyta" id="CopyPaymentBTN">PAYMENT:</span>&nbsp;&nbsp;<br>
+			<span class="boyta" id="CopyZipBTN">ZIPCODE:</span>&nbsp;&nbsp;<br>
+			<span class="boyta" id="CopyMileBTN">MILEAGE:</span>&nbsp;&nbsp;<br>
+			DISTANCE:&nbsp;&nbsp;<br>
+			TIME:&nbsp;&nbsp;
+		</div>
+	</div> -->
+	<textarea autocomplete="off" id="textarea2" class="textspace A"></textarea>
+	<textarea autocomplete="off" id="textarea3" class="utility"></textarea>
+	<textarea autocomplete="off" id="textarea4" class="utility"></textarea>
+	<textarea autocomplete="off" id="textarea5" class="utility"></textarea>
+	<textarea autocomplete="off" id="linkStore" class="utility"></textarea>
+	<textarea id="EDITarea"></textarea>
+	<textarea id="userTextarea1" class="userTextareas"></textarea>
+	<textarea id="userTextarea2" class="userTextareas"></textarea>
+	<textarea id="userTextarea3" class="userTextareas"></textarea>
+	
+
+	<!-- Numbers -->
+<!-- 	<div id="phoneNumbers" class="C P A" contenteditable>
+		<p>Main</p>
+		<p>555-555-5555</p>
+		<p>Towing</p>
+		<p>555-555-5555</p>
+		<p>Rental</p>
+		<p>555-555-5555</p>
+		<p>Payments</p>
+		<p>555-555-5555</p>
+	</div> -->
+	
+	
+	<!-- Context Menu -->
+	<div id="context-menu">
+		<div class="item" id="displayItem">Edit</div>
+		<div class="item" id="moveItem">Move</div>
+		<div class="item" id="buttonShortcutItem">Edit Shortcut</div>
+		<div class="item" id="deleteCustomItem">Delete</div>
+		<div class="item" id="newButtonItem">Create Button</div>
+		<div class="item" id="newPopNoteItem">Create PopNote</div>
+		<div class="item" id="newSetItem">Create Set</div>
+		<div class="item" id="newSlideItem">Create Slide</div>
+		<div class="item" id="appearanceItem">Appearance</div>
+		<div class="item" id="profileItem">Profiles</div>
+		<div class="item" id="fileItem">Files</div>
+		<div class="item" id="shortcutItem">All Shortcuts</div>
+		<div class="item" id="toggleListItem">Toggle List</div>
+		<div class="item" id="masterResetItem">Master Reset</div>
+	</div>
+	
+	
+	<!-- Button Editor -->
+	<div class="CMeditDIV mainDiv" id="disEdit">
+		<div id="dragBar"><p>&#8801;&#8801;&#8801;</p></div>
+		<div class="editHeader">
+			<button id="leftPage" class="standard contextControl">&#11164;</button>
+			<div id="editPageHeader">Edit Display</div>
+			<button id="rightPage" class="standard contextControl">&#11166;</button>
+		</div>
+		<div id="displayEditPage" class="editPage active">
+			<div id="mimicHouse">
+				<button id="mimic" class="contextControl" contenteditable></button>
+			</div>
+			<div id="editorButtons">
+				<div class="controlCol">
+					<button id="hplus" class="standard contextControl">&#11165;</button>
+					<div>Height</div>
+					<button id="hminus" class="standard contextControl">&#11167;</button>
+				</div>
+				<div class="controlCol">
+					<button id="wplus" class="standard contextControl">&#11165;</button>
+					<div>Width</div>
+					<button id="wminus" class="standard contextControl">&#11167;</button>
+				</div>
+				<div class="controlCol">
+					<button id="plus" class="standard contextControl">&#11165;</button>
+					<div>Font</div>
+					<button id="minus" class="standard contextControl">&#11167;</button>
+				</div>
+				<div class="controlCol">
+					<button id="bold" class="standard contextControl">Bold</button>
+					<button id="color" class="standard contextControl">Color</button>
+				</div>
+			</div>
+		</div>
+		<div id="contentEditPage" class="editPage">
+			<div id="ContentEditor" class="largeTextInput" contenteditable></div>
+			<div id="typeEditor">
+				<label class="editButtonTypeLabel" for="editButtonTypeclip">
+					<input id="editButtonTypeclip" type="radio" value="clip" name="editButtonTypeBtn" class="editButtonTypeRadio"><span class="outputSelectionSpan">Clip</span>
+				</label>
+				<span>Type</span>
+				<label class="editButtonTypeLabel" for="editButtonTypesolo">
+					<input id="editButtonTypesolo" type="radio" value="solo" name="editButtonTypeBtn" class="editButtonTypeRadio"><span class="outputSelectionSpan">Solo</span>
+				</label>
+			</div>
+		</div>
+		<div class="editBtnsContainer">
+			<button id="dispSubmit" class="standard contextControl">Submit</button>
+			<button id="dispDefault" class="standard contextControl">Default</button>
+			<button id="dispCancel" class="standard contextControl">Cancel</button>
+		</div>
+	</div>
+
+
+	<!-- Button Maker -->
+	<div id="infoOverlay" class="overlayDiv">
+		<div id="infoDiv" class="mainDiv">
+			<h1 class="h1">Button Maker:</h1>
+			<h2 class="h2">Select the Button Type</h2>
+			<div id="infoDiv1" class="makerRow">
+				<div class="makerCol">
+					<div class="basicSelection">
+						<label for="clip">Clip Note</label>
+						<input type="radio" id="clip" name="buttonType"><br>
+						<p class="upperLineBorder">This will send text to the clipboard.</p>
+					</div>
+					<div class="basicSelection">
+						<label for="solo">Solo Note</label>
+						<input type="radio" id="solo" name="buttonType"><br>
+						<p class="upperLineBorder">This will send text to the text area.</p>
+					</div>
+					
+					<div class="popNoteSelection">
+						<label for="pop">PopNote</label>
+						<input type="radio" id="pop" name="buttonType"><br>
+						<p class="upperLineBorder">This will show or hide stored text.</p>
+					</div>
+				</div>
+			</div>
+			<div id="inputLine">
+				<div>
+					<label class="declareButton">New Button</label>
+				</div>
+				<input type="text" id="BtnDisplay" class="mainTextInput" placeholder="Display"></textarea>
+				<textarea id="BtnContent" class="mainTextInput" placeholder="Output"></textarea>
+			</div>
+			<div class="editBtnsContainer">
+				<button id="infoCancel" class="standard">Cancel</button>
+				<button id="infoDone" class="standard">Submit</button>
+			</div>
+		</div>
+	</div>
+	
+	
+	<!-- Set Maker -->
+	<div id="setMakerDiv" class="overlayDiv">
+		<div id="setMakerInnerDiv" class="mainDiv">
+			<h1 class="h1">Create Parent Button</h1>
+			<div class="setMakerRow">
+				<div class="flexGrow2">
+					<label class="parentLabelPre" for="parentText">Parent Button Text:</label>
+					<input type="text" id="parentText" class="mainTextInput" placeholder="Display text">
+				</div>
+				<div class="flexGrow2">
+					<label class="parentLabelPre" for="childCount">Number of Child Buttons:</label>
+					<select id="childCount" class="mainSelect">
+						<option class="option" value="2">2</option>
+						<option class="option" value="3">3</option>
+						<option class="option" value="4">4</option>
+					</select>
+				</div>
+			</div>
+			<div id="childConfig" class="hidden">
+				<h2 class="h2">Configure Child Buttons</h2>
+				<div id="childFields"></div>
+				<button id="saveConfig" class="standard autoSize" disabled>Save Configuration</button>
+				<button id="cancelSetMaker" class="standard">Cancel</button>
+			</div>
+		</div>
+	</div>
+	
+	
+	<!-- Slide Maker -->
+	<div id="slideMakerOuter" class="overlayDiv">
+		<div id="slideMakerDiv" class="overlayDiv">
+			<h1 class="h1">Create Slide Button</h1>
+			<div class="customSlideWrapper">
+				<div id="slideParentDiv">
+					<label for="customSlideText">Slide Name:</label>
+					<input type="text" id="customSlideText" placeholder="Slide Name">
+				</div>
+				<div class="slideChildSelection">
+					<label for="customSlideCount">Number of Slide Buttons:</label>
+					<select id="customSlideCount" class="mainSelect">
+						<option class="option" value="2">2</option>
+						<option class="option" value="3">3</option>
+						<option class="option" value="4">4</option>
+						<option class="option" value="4">5</option>
+						<option class="option" value="4">6</option>
+						<option class="option" value="4">7</option>
+						<option class="option" value="4">8</option>
+					</select>
+				</div>
+				<div class="customSlideChilds">
+					<div class="sliders">
+						<label for="customSlideText1">Slide 1</label>
+						<input type="text" id="customSlideText1" placeholder="Display Text">
+						<textarea id="customSlideOutput1" placeholder="Output"></textarea>
+						<div class="buttonOutputType">
+							<button id="customSlideOutput1clip" class="typeClass" name="customSlideOutput1type">Clip</button>
+							<span>Type</span>
+							<button id="customSlideOutput1solo" class="typeClass" name="customSlideOutput1type">Solo</button>
+						</div>
+					</div>
+					<div class="sliders">
+						<label for="customSlideText2">Slide 2</label>
+						<input type="text" id="customSlideText2" placeholder="Display Text">
+						<textarea id="customSlideOutput2" placeholder="Output"></textarea>
+						<div class="buttonOutputType">
+							<button id="customSlideOutput2clip" class="typeClass" name="customSlideOutput2type">Clip</button>
+							<span>Type</span>
+							<button id="customSlideOutput2solo" class="typeClass" name="customSlideOutput2type">Solo</button>
+						</div>
+					</div>
+					<div class="sliders">
+						<label for="customSlideText3">Slide 3</label>
+						<input type="text" id="customSlideText3" placeholder="Display Text">
+						<textarea id="customSlideOutput3" placeholder="Output"></textarea>
+						<div class="buttonOutputType">
+							<button id="customSlideOutput3clip" class="typeClass" name="customSlideOutput3type">Clip</button>
+							<span>Type</span>
+							<button id="customSlideOutput3solo" class="typeClass" name="customSlideOutput3type">Solo</button>
+						</div>
+					</div>
+				</div>
+				<div id="slideControlBtns">
+					<button id="slideMakerCancel" class="standard">Cancel</button>
+					<button id="slideMakerRun" class="standard">Submit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+		
+	<!-- Copyright -->
+<!-- 	<div id="disclaimer">COPYRIGHT © AdjusterConsole, LLC 2024</div>
+	<div id="disclaimer2">
+		<p class="top1 mainCopy">COPYRIGHT © AdjusterConsole, LLC 2024 – ALL RIGHTS RESERVED</p>
+		<p class="top1">This website and its content, including but not limited to the 'AC' logo and 'AdjusterConsole', are protected by copyright law.</p>
+		<p class="top1">You are granted a limited, non-exclusive, non-transferable, revocable license to access and use the materials on this website solely for personal use.</p>
+		<p class="top1">By accessing or using this website, you agree to the following terms and conditions:</p>
+		<ul>
+			<li><b>Restrictions on Use</b> - 
+				You may not, without the express written permission of AdjusterConsole, LLC:
+				<ol>
+					<li>Copy, download, reproduce, distribute, publish, display, perform, modify, create derivative works from, transmit, or otherwise exploit any part of this website or its content, in whole or in part.</li>
+					<li>Use this website or its content for any illegal, unethical, or unauthorized purposes.</li>
+					<li>Access or use any proprietary information, documents, or content not owned by AdjusterConsole, LLC in a way that is not expressly authorized.</li>
+				</ol>
+				This license applies to all versions of the code and content previously released, as well as all future versions. Any prior statements made regarding permission to use are hereby revoked.
+			</li>
+			<li><b>Third-Party Trademarks and Proprietary Information</b> - 
+				All trademarks, service marks, proprietary information, and/or documents not owned by AdjusterConsole, LLC that appear on this website are the property of their respective owners, who may or may not be affiliated with, connected to, or sponsored by AdjusterConsole, LLC. Such proprietary information, documents, and content should be treated as confidential and used solely for their intended and expressly authorized purposes. Unauthorized use, distribution, or disclosure of such proprietary information is strictly prohibited.
+			</li>
+			<li><b>Disclaimer of Warranties</b> - 
+				This website, its content, and the code provided are offered "as is", without any warranty of any kind, either express or implied. The author makes no representations or warranties regarding the accuracy, completeness, or suitability of the website or its content for any particular purpose.
+			</li>
+			<li><b>Limitation of Liability</b> - 
+				To the fullest extent permitted by law, AdjusterConsole, LLC shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising out of or relating to your use of or inability to use the website or its content, even if advised of the possibility of such damages.
+			</li>
+			<li><b>Indemnification</b> - 
+				You agree to indemnify, defend, and hold harmless AdjusterConsole, LLC from any claims, liabilities, damages, losses, or expenses (including reasonable attorney's fees) arising from your use of the website or its content, or your violation of these terms and conditions.
+			</li>
+			<li><b>Amendments to the Terms</b> - 
+				These terms and conditions may be updated or modified at any time without prior notice. It is your responsibility to review these terms regularly. By continuing to use this website, you agree to any changes.
+			</li>
+			<li><b>Governing Law and Jurisdiction</b> - 
+				These terms and conditions are governed by and construed in accordance with the laws of the United States of America. Any disputes arising under or related to these terms and conditions shall be resolved exclusively in the courts of United States of America.
+			</li>
+			<li><b>Contact Information for Licensing Inquiries</b> - 
+				For inquiries regarding licensing or permission to use this code in ways not covered by this license, please contact Info@AdjusterConsole.com.
+			</li>
+		</ul>
+		<p class="center"><b>By using this website or its content, you acknowledge that you have read, understood, and agree to be bound by these terms and conditions. Failure to comply with these terms may result in legal action.</b></p>
+		<div class="standard" id="understand">I have read and understand these terms and conditions</div>
+	</div> -->
+	
+	
+	<!-- Set 1 Build -->
+	<div id="set1HTMLPre" class="setParent hide">
+		<label class="setName"><span class="labelSpan">Set Name:</span>
+			<input type="text" placeholder="Set Name" id="setNameInputValue" data-element-id="s001">
+		</label>
+		<div class="childContainer childSupport">
+			<div class="setChildOuter">
+				<div class="setChild">
+					<label class="declareChildButton">Child Button 1</label>
+					<input id="set1Child1Text" type="text" placeholder="Button Text" data-element-id="s001_ss001">
+					<button id="set1GCToggle" data-target="gcContain1" class="standard mini toggleGrandchildren">Show</button>
+				</div>
+				<div class="setChild">
+					<div class="assistHeaderType">
+						<label class="declareChildButton">Child Button 2</label>
+						<div class="buttonOutputType">
+							<button id="set1Child2clip" class="typeClass" name="set1Child2type" data-element-id="s001_b001">Clip</button>
+							<span>Type</span>
+							<button id="set1Child2solo" class="typeClass" name="set1Child2type" data-element-id="s001_b001">Solo</button>
+						</div>
+					</div>
+					<input id="set1Child2Text" type="text" placeholder="Button Text" data-element-id="s001_b001">
+					<textarea id="set1Child2Output" placeholder="Output for Child 2" data-element-id="s001_b001"></textarea>
+				</div>
+				<div class="setChild">
+					<div class="assistHeaderType">
+						<label class="declareChildButton">Child Button 3</label>
+						<div class="buttonOutputType">
+							<button id="set1Child3clip" class="typeClass" name="set1Child3type" data-element-id="s001_b002">Clip</button>
+							<span>Type</span>
+							<button id="set1Child3solo" class="typeClass" name="set1Child3type" data-element-id="s001_b002">Solo</button>
+						</div>
+					</div>
+					<input id="set1Child3Text" type="text" placeholder="Button Text" data-element-id="s001_b002">
+					<textarea id="set1Child3Output" placeholder="Output for Child 3" data-element-id="s001_b002"></textarea>
+				</div>
+				<div class="setChild">
+					<div class="assistHeaderType">
+						<label class="declareChildButton">Child Button 4</label>
+						<div class="buttonOutputType">
+							<button id="set1Child4clip" class="typeClass" name="set1Child4type" data-element-id="s001_b003">Clip</button>
+							<span>Type</span>
+							<button id="set1Child4solo" class="typeClass" name="set1Child4type" data-element-id="s001_b003">Solo</button>
+						</div>
+					</div>
+					<input id="set1Child4Text" type="text" placeholder="Button Text" data-element-id="s001_b003">
+					<textarea id="set1Child4Output" placeholder="Output for Child 4" data-element-id="s001_b003"></textarea>
+				</div>
+			</div>
+			<div class="setChildOuter">
+				<div class="grandchildContainer" id="gcContain1">
+					<div class="setGrandchildren">
+						<div class="assistHeaderType">
+							<label class="declareButton"><span class="declareGC">Grandchild<br></span>Button 1</label>
+							<div class="buttonOutputType">
+								<button id="set1Child1grandChild1clip" class="typeClass" name="set1Child1grandChild1type" data-element-id="s001_ss001_b001">Clip</button>
+								<span>Type</span>
+								<button id="set1Child1grandChild1solo" class="typeClass" name="set1Child1grandChild1type" data-element-id="s001_ss001_b001">Solo</button>
+							</div>
+						</div>
+						<input id="set1Child1grandChild1Text" type="text" placeholder="Display Text" data-element-id="s001_ss001_b001">
+						<textarea id="set1Child1grandChild1Output" placeholder="Output" data-element-id="s001_ss001_b001"></textarea>
+					</div>
+					<div class="setGrandchildren">
+						<div class="assistHeaderType">
+							<label class="declareButton"><span class="declareGC">Grandchild<br></span>Button 2</label>
+							<div class="buttonOutputType">
+								<button id="set1Child1grandChild2clip" class="typeClass" name="set1Child1grandChild2type" data-element-id="s001_ss001_b002">Clip</button>
+								<span>Type</span>
+								<button id="set1Child1grandChild2solo" class="typeClass" name="set1Child1grandChild2type" data-element-id="s001_ss001_b002">Solo</button>
+							</div>
+						</div>
+						<input id="set1Child1grandChild2Text" type="text" placeholder="Display Text" data-element-id="s001_ss001_b002">
+						<textarea id="set1Child1grandChild2Output" placeholder="Output" data-element-id="s001_ss001_b002"></textarea>
+					</div>
+					<div class="setGrandchildren">
+						<div class="assistHeaderType">
+							<label class="declareButton"><span class="declareGC">Grandchild<br></span>Button 3</label>
+							<div class="buttonOutputType">
+								<button id="set1Child1grandChild3clip" class="typeClass" name="set1Child1grandChild3type" data-element-id="s001_ss001_b003">Clip</button>
+								<span>Type</span>
+								<button id="set1Child1grandChild3solo" class="typeClass" name="set1Child1grandChild3type" data-element-id="s001_ss001_b003">Solo</button>
+							</div>
+						</div>
+						<input id="set1Child1grandChild3Text" type="text" placeholder="Display Text" data-element-id="s001_ss001_b003">
+						<textarea id="set1Child1grandChild3Output" placeholder="Output" data-element-id="s001_ss001_b003"></textarea>
+					</div>
+					<div class="setGrandchildren">
+						<div class="assistHeaderType">
+							<label class="declareButton"><span class="declareGC">Grandchild<br></span>Button 4</label>
+							<div class="buttonOutputType">
+								<button id="set1Child1grandChild4clip" class="typeClass" name="set1Child1grandChild4type" data-element-id="s001_ss001_b004">Clip</button>
+								<span>Type</span>
+								<button id="set1Child1grandChild4solo" class="typeClass" name="set1Child1grandChild4type" data-element-id="s001_ss001_b004">Solo</button>
+							</div>
+						</div>
+						<input id="set1Child1grandChild4Text" type="text" placeholder="Display Text" data-element-id="s001_ss001_b004">
+						<textarea id="set1Child1grandChild4Output" placeholder="Output" data-element-id="s001_ss001_b004"></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<!-- Set 2 Build -->
+	<div id="set2HTMLPre" class="setParent hide">
+		<label class="setName"><span class="labelSpan">Set Name:</span>
+			<input type="text" placeholder="Set Name" id="set2NameInputValue" data-element-id="s002">
+		</label>
+		<div class="childContainerRow"> 
+			<div class="childContainerCol">                                   
+				<div class="setChild">
+					<label class="declareChildButton">Child Button 1</label>
+					<input id="set2Child1Text" type="text" placeholder="Button Text" data-element-id="s002_ss001">
+					<button id="set2C1Toggle" name="toggleSet2" data-target="gc2Contain1" class="standard mini toggleGrandchildren">Show</button>
+				</div>
+				<div class="setChild">
+					<label class="declareChildButton">Child Button 2</label>
+					<input id="set2Child2Text" type="text" placeholder="Button Text" data-element-id="s002_ss002">
+					<button id="set2C2Toggle" name="toggleSet2" data-target="gc2Contain2" class="standard mini toggleGrandchildren">Show</button>
+				</div>
+				<div class="setChild">
+					<label class="declareChildButton">Child Button 3</label>
+					<input id="set2Child3Text" type="text" placeholder="Button Text" data-element-id="s002_ss003">
+					<button id="set2C3Toggle" name="toggleSet2" data-target="gc2Contain3" class="standard mini toggleGrandchildren">Show</button>
+				</div>
+			</div>
+			<div class="childContainer">
+				<div class="grandchildContainer set2ToggleTarget" id="gc2Contain1">
+					<h2>For Child 1</h2>
+					<div class="setGrandchildren">
+						<div class="assistHeaderType">
+							<label class="declareButton"><span class="declareGC">Grandchild<br></span>Button 1</label>
+							<div class="buttonOutputType">
+								<button id="set2Child1grandChild1clip" class="typeClass" name="set2Child1grandChild1type" data-element-id="s002_ss001_b001">Clip</button>
+								<span>Type</span>
+								<button id="set2Child1grandChild1solo" class="typeClass" name="set2Child1grandChild1type" data-element-id="s002_ss001_b001">Solo</button>
+							</div>
+						</div>
+						<input id="set2Child1grandChild1Text" type="text" placeholder="Display Text" data-element-id="s002_ss001_b001">
+						<textarea id="set2Child1grandChild1Output" placeholder="Output" data-element-id="s002_ss001_b001"></textarea>
+					</div>
+					<div class="setGrandchildren">
+						<div class="assistHeaderType">
+							<label class="declareButton"><span class="declareGC">Grandchild<br></span>Button 2</label>
+							<div class="buttonOutputType">
+								<button id="set2Child1grandChild2clip" class="typeClass" name="set2Child1grandChild2type" data-element-id="s002_ss001_b002">Clip</button>
+								<span>Type</span>
+								<button id="set2Child1grandChild2solo" class="typeClass" name="set2Child1grandChild2type" data-element-id="s002_ss001_b002">Solo</button>
+							</div>
+						</div>
+						<input id="set2Child1grandChild2Text" type="text" placeholder="Display Text" data-element-id="s002_ss001_b002">
+						<textarea id="set2Child1grandChild2Output" placeholder="Output" data-element-id="s002_ss001_b002"></textarea>
+					</div>
+					<div class="setGrandchildren">
+						<div class="assistHeaderType">
+							<label class="declareButton"><span class="declareGC">Grandchild<br></span>Button 3</label>
+							<div class="buttonOutputType">
+								<button id="set2Child1grandChild3clip" class="typeClass" name="set2Child1grandChild3type" data-element-id="s002_ss001_b003">Clip</button>
+								<span>Type</span>
+								<button id="set2Child1grandChild3solo" class="typeClass" name="set2Child1grandChild3type" data-element-id="s002_ss001_b003">Solo</button>
+							</div>
+						</div>
+						<input id="set2Child1grandChild3Text" type="text" placeholder="Display Text" data-element-id="s002_ss001_b003">
+						<textarea id="set2Child1grandChild3Output" placeholder="Output" data-element-id="s002_ss001_b003"></textarea>
+					</div>
+					<div class="setGrandchildren">
+						<div class="assistHeaderType">
+							<label class="declareButton"><span class="declareGC">Grandchild<br></span>Button 4</label>
+							<div class="buttonOutputType">
+								<button id="set2Child1grandChild4clip" class="typeClass" name="set2Child1grandChild4type" data-element-id="s002_ss001_b004">Clip</button>
+								<span>Type</span>
+								<button id="set2Child1grandChild4solo" class="typeClass" name="set2Child1grandChild4type" data-element-id="s002_ss001_b004">Solo</button>
+							</div>
+						</div>
+						<input id="set2Child1grandChild4Text" type="text" placeholder="Display Text" data-element-id="s002_ss001_b004">
+						<textarea id="set2Child1grandChild4Output" placeholder="Output" data-element-id="s002_ss001_b004"></textarea>
+					</div>
+				</div>
+				<div class="grandchildContainer set2ToggleTarget" id="gc2Contain2">
+					<h2>For Child 2</h2>
+					<div class="setGrandchildren">
+						<div class="assistHeaderType">
+							<label class="declareButton"><span class="declareGC">Grandchild<br></span>Button 1</label>
+							<div class="buttonOutputType">
+								<button id="set2Child2grandChild1clip" class="typeClass" name="set2Child2grandChild1type" data-element-id="s002_ss002_b001">Clip</button>
+								<span>Type</span>
+								<button id="set2Child2grandChild1solo" class="typeClass" name="set2Child2grandChild1type" data-element-id="s002_ss002_b001">Solo</button>
+							</div>
+						</div>
+						<input id="set2Child2grandChild1Text" type="text" placeholder="Display Text" data-element-id="s002_ss002_b001">
+						<textarea id="set2Child2grandChild1Output" placeholder="Output" data-element-id="s002_ss002_b001"></textarea>
+					</div>
+					<div class="setGrandchildren">
+						<div class="assistHeaderType">
+							<label class="declareButton"><span class="declareGC">Grandchild<br></span>Button 2</label>
+							<div class="buttonOutputType">
+								<button id="set2Child2grandChild2clip" class="typeClass" name="set2Child2grandChild2type" data-element-id="s002_ss002_b002">Clip</button>
+								<span>Type</span>
+								<button id="set2Child2grandChild2solo" class="typeClass" name="set2Child2grandChild2type" data-element-id="s002_ss002_b002">Solo</button>
+							</div>
+						</div>
+						<input id="set2Child2grandChild2Text" type="text" placeholder="Display Text" data-element-id="s002_ss002_b002">
+						<textarea id="set2Child2grandChild2Output" placeholder="Output" data-element-id="s002_ss002_b002"></textarea>
+					</div>
+					<div class="setGrandchildren">
+						<div class="assistHeaderType">
+							<label class="declareButton"><span class="declareGC">Grandchild<br></span>Button 3</label>
+							<div class="buttonOutputType">
+								<button id="set2Child2grandChild3clip" class="typeClass" name="set2Child2grandChild3type" data-element-id="s002_ss002_b003">Clip</button>
+								<span>Type</span>
+								<button id="set2Child2grandChild3solo" class="typeClass" name="set2Child2grandChild3type" data-element-id="s002_ss002_b003">Solo</button>
+							</div>
+						</div>
+						<input id="set2Child2grandChild3Text" type="text" placeholder="Display Text" data-element-id="s002_ss002_b003">
+						<textarea id="set2Child2grandChild3Output" placeholder="Output" data-element-id="s002_ss002_b003"></textarea>
+					</div>
+					<div class="setGrandchildren">
+						<div class="assistHeaderType">
+							<label class="declareButton"><span class="declareGC">Grandchild<br></span>Button 4</label>
+							<div class="buttonOutputType">
+								<button id="set2Child2grandChild4clip" class="typeClass" name="set2Child2grandChild4type" data-element-id="s002_ss002_b004">Clip</button>
+								<span>Type</span>
+								<button id="set2Child2grandChild4solo" class="typeClass" name="set2Child2grandChild4type" data-element-id="s002_ss002_b004">Solo</button>
+							</div>
+						</div>
+						<input id="set2Child2grandChild4Text" type="text" placeholder="Display Text" data-element-id="s002_ss002_b004">
+						<textarea id="set2Child2grandChild4Output" placeholder="Output" data-element-id="s002_ss002_b004"></textarea>
+					</div>
+				</div>
+				<div class="grandchildContainer set2ToggleTarget" id="gc2Contain3">
+					<h2>For Child 3</h2>
+					<div class="setGrandchildren">
+						<div class="assistHeaderType">
+							<label class="declareButton"><span class="declareGC">Grandchild<br></span>Button 1</label>
+							<div class="buttonOutputType">
+								<button id="set2Child3grandChild1clip" class="typeClass" name="set2Child3grandChild1type" data-element-id="s002_ss003_b001">Clip</button>
+								<span>Type</span>
+								<button id="set2Child3grandChild1solo" class="typeClass" name="set2Child3grandChild1type" data-element-id="s002_ss003_b001">Solo</button>
+							</div>
+						</div>
+						<input id="set2Child3grandChild1Text" type="text" placeholder="Display Text" data-element-id="s002_ss003_b001">
+						<textarea id="set2Child3grandChild1Output" placeholder="Output" data-element-id="s002_ss003_b001"></textarea>
+					</div>
+					<div class="setGrandchildren">
+						<div class="assistHeaderType">
+							<label class="declareButton"><span class="declareGC">Grandchild<br></span>Button 2</label>
+							<div class="buttonOutputType">
+								<button id="set2Child3grandChild2clip" class="typeClass" name="set2Child3grandChild2type" data-element-id="s002_ss003_b002">Clip</button>
+								<span>Type</span>
+								<button id="set2Child3grandChild2solo" class="typeClass" name="set2Child3grandChild2type" data-element-id="s002_ss003_b002">Solo</button>
+							</div>
+						</div>
+						<input id="set2Child3grandChild2Text" type="text" placeholder="Display Text" data-element-id="s002_ss003_b002">
+						<textarea id="set2Child3grandChild2Output" placeholder="Output" data-element-id="s002_ss003_b002"></textarea>
+					</div>
+					<div class="setGrandchildren">
+						<div class="assistHeaderType">
+							<label class="declareButton"><span class="declareGC">Grandchild<br></span>Button 3</label>
+							<div class="buttonOutputType">
+								<button id="set2Child3grandChild3clip" class="typeClass" name="set2Child3grandChild3type" data-element-id="s002_ss003_b003">Clip</button>
+								<span>Type</span>
+								<button id="set2Child3grandChild3solo" class="typeClass" name="set2Child3grandChild3type" data-element-id="s002_ss003_b003">Solo</button>
+							</div>
+						</div>
+						<input id="set2Child3grandChild3Text" type="text" placeholder="Display Text" data-element-id="s002_ss003_b003">
+						<textarea id="set2Child3grandChild3Output" placeholder="Output" data-element-id="s002_ss003_b003"></textarea>
+					</div>
+					<div class="setGrandchildren">
+						<div class="assistHeaderType">
+							<label class="declareButton"><span class="declareGC">Grandchild<br></span>Button 4</label>
+							<div class="buttonOutputType">
+								<button id="set2Child3grandChild4clip" class="typeClass" name="set2Child3grandChild4type" data-element-id="s002_ss003_b004">Clip</button>
+								<span>Type</span>
+								<button id="set2Child3grandChild4solo" class="typeClass" name="set2Child3grandChild4type" data-element-id="s002_ss003_b004">Solo</button>
+							</div>
+						</div>
+						<input id="set2Child3grandChild4Text" type="text" placeholder="Display Text" data-element-id="s002_ss003_b004">
+						<textarea id="set2Child3grandChild4Output" placeholder="Output" data-element-id="s002_ss003_b004"></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<!-- Load Prompt -->
+	<div id="loadPromptDiv" class="mainDiv promptDivStyle">
+		<p>Would you like to pick up where<br>
+		you left off or start fresh?</p>
+		<div>
+			<button id="loadButton" class="standard">Load Saved Data</button>
+			<button id="resetButton" class="standard">Start Fresh</button>
+		</div>
+	</div>
+	
+	
+	<!-- Reset Modal -->
+	<div id="deleteProgressOverlay">
+		<div id="deleteProgressDiv" class="mainDiv">
+			<p class="promptMessage">Are you sure you want to delete all progress?</p>
+			<p class="promptMessage2">This action cannot be undone.</p>
+			<div class="deleteProgressDivButtons">
+				<button id="confirmButton" class="standard">Confirm</button>
+				<button id="cancelButton" class="standard">Cancel</button>
+			</div>
+		</div>
+	</div>
+	
+	
+	<!-- Confirmation Modal -->
+	<div id="confirmSetupDiv" class="mainDiv confirmationDiv">
+		<p></p>
+		<ul></ul>
+		<button id="okButton" class="standard">OK</button>
+	</div>
+	
+	
+	<!-- Quick Tutorial -->
+	<div id="quickStartTutorial" class="mainDiv quickCol">
+		<h1 class="h1">BaseConsole - Tutorial</h1>
+		<div class="quickCol quickColLeft">
+			<div class="quickRow">
+				<div class="quickCol quickSpace">
+					<div class="quickRow">
+						<div class="quickCol">
+							<span class="tutorialType">Clip button</span>
+							Clicking these buttons instantly copies your text to your clipboard.
+						</div>
+						<div class="quickCol tutorialImgDiv">
+							<img id="clipTutorial" src="./Images/tutorial/clipTutorial238.png" alt="Clip Tutorial">
+						</div>
+					</div>
+					<div class="quickRow">
+						<div class="quickCol">
+							<span class="tutorialType">Solo button</span>
+							Clicking these buttons sends your preset text to the main textarea.
+						</div>	
+						<div class="quickCol tutorialImgDiv">
+							<img id="soloTutorial" src="./Images/tutorial/soloTutorial238.png" alt="Solo Tutorial">
+						</div>	
+					</div>	
+					<div class="quickRow">
+						<div class="quickCol">
+							<span class="tutorialType">PopNotes</span>
+							Click a PopNote button to show your stored text in a window.
+							Click the button again to hide the window.
+						</div>
+						<div class="quickCol tutorialImgDiv">
+							<img id="PopNote" src="./Images/tutorial/PopNote238.png" alt="PopNote Tutorial">
+						</div>
+					</div>
+				</div>
+				<div class="quickCol">
+					<div class="quickRow">
+						<div class="quickCol">
+							<span class="tutorialType">Slides</span>
+							Clicking a slide button will display three additional buttons.
+							Buttons automatically move off-screen when one is selected or after a preset amount of time.
+						</div>
+						<div class="quickCol tutorialImgDiv">
+							<img id="slideDrop" src="./Images/tutorial/slideDrop238.png" alt="Slide Tutorial">
+						</div>
+					</div>
+					<div class="quickRow">
+						<div class="quickCol">
+							<span class="tutorialType">Button Sets</span>
+							Parent button can spawn up to 4 child buttons.
+							Child buttons can be Clip, Solo, or generate up to 4 more child buttons each.
+							Grandchild buttons are always Clip or Solo.
+						</div>
+						<div class="quickCol tutorialImgDiv">
+							<img id="setExplain" src="./Images/tutorial/setExplain238.png" alt="Set Tutorial">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="quickRow tutorialImgDiv editImageContainer">
+				<div class="quickCol imageZoom">
+					<span class="imageLabel">Files and Profiles</span>
+					<img id="filesAndProfilesTutorial" src="./Images/tutorial/fileManager.png" alt="Files and Profiles Tutorial">
+				</div>
+				<div class="quickCol imageZoom">
+					<span class="imageLabel">Edit Buttons</span>
+					<img id="editButtonTutorial" src="./Images/tutorial/tutorialEditButtons.png" alt="Edit Button Tutorial">
+				</div>
+				<div class="quickCol imageZoom">
+					<span class="imageLabel">Appearance</span>
+					<img id="appearanceTutorial" src="./Images/tutorial/appearanceTutorial.png" alt="Appearance Tutorial">
+				</div>
+				<div class="quickCol imageZoom">
+					<span class="imageLabel">Shortcuts</span>
+					<img id="shortcutsTutorial" src="./Images/tutorial/shortcutsTutorial.png" alt="Shortcuts Tutorial">
+				</div>
+			</div>
+			<div class="quickRow">
+				<div class="quickCol quickSpace">
+					<div class="quickCol">
+						<span class="tutorialType">Profiles</span>
+						A profile is essentially a new instance of The Console.
+						Everything from display text and output to position and color scheme can be swapped for another workflow or use in an instant.
+						Any changes made are auto-saved to the current profile.  
+					</div>
+					<div class="quickCol">
+						<span class="tutorialType">Shortcuts</span>
+						Use the default shortcuts or set your own. 
+					</div>
+				</div>
+				<div class="quickCol quickSpace">
+					<div class="quickCol">
+						<span class="tutorialType">Files</span>
+						Store commonly accessed PDFs and images for lightning fact access.
+					</div>
+					<div class="quickCol">
+						<span class="tutorialType">Toggle List</span>
+						Clicking a slide button will display three additional buttons.
+						Buttons automatically move off-screen when one is selected or after a preset amount of time.  
+					</div>
+				</div>
+			</div>
+		<button class="standard" id="doneQuickTutorial">Exit</button>
+		</div>
+		<div id="imgOverlay"></div>
+	</div>
+	
+
+	<!-- Shortcuts -->
+	<div id="shortcutOverlay" class="overlayDiv">
+		<div id="shortcutPanel">
+			<a href="#" id="closeShortcut">&times;</a>
+			<h1 class="storedShortcut h1">Shortcuts</h1>
+			<p id="listP"><span>Name</span><span>Target</span><span>Shortcut</span><span>Modify</span></p>
+			<div id="storedShortcutDisplay">
+				<ul id="shortcutList"></ul>
+			</div>
+		</div>
+		<div id="shortcutEditDialog" class="mainDiv">
+			<h3 id="editDialogHeader">Edit Shortcut</h3>
+			<div id="shortcutDemoButtons">
+				<div class="key" id="shortcutAltDiv">ALT</div>
+				<div class="connector" id="connectorAltCtrl"></div>
+				<div class="connector" id="connectorAltShift"></div>
+				<div class="connector" id="connectorAltNonMod"></div>
+				<div class="key" id="shortcutControlDiv">CTRL</div>
+				<div class="connector" id="connectorCtrlShift"></div>
+				<div class="connector" id="connectorCtrlNonMod"></div>
+				<div class="key" id="shortcutShiftDiv">SHIFT</div>
+				<div class="connector" id="connectorShiftNonMod"></div>
+				<div class="key" id="shortcutNonModDiv"></div>
+			</div>
+			<div id="shortcutInputDiv">
+				<label class="shortcutInputLabel" for="shortcutInput">Shortcut</label>
+				<input type="text" id="shortcutInput" class="mainTextInput" readonly>
+			</div>
+			<div id="shortcutNameDiv">
+				<div class="shortcutInputLabel" id="shortcutNameLabel">Name</div>
+				<div id="shortcutNameDisp"></div>
+			</div>
+			<div id="shortcutButtons">
+				<button id="saveShortcut" class="standard">Save</button>
+				<button id="cancelShortcut" class="standard">Cancel</button>
+			</div>
+		</div>
+	</div>
+	<div id="shortcutHoverTip" class="shortcutTip"></div>
+	
+	<!--Sripts -->
+	<script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.27/dist/interact.min.js" defer></script>
+	<script src="JavaScript/baseObjects.js?v=20250911221808" defer></script>
+	<script src="JavaScript/defaultShortcuts.js?v=20250911221808" defer></script>
+	<script src="JavaScript/shortcuts.js?v=20250911221808" defer></script>
+	<script src="JavaScript/eventListeners.js?v=20250911221808" defer></script>
+	<script src="JavaScript/main.js?v=20250911221808" defer></script>
+	<script src="JavaScript/layoutProfiles.js?v=20250911221808" defer></script>
+	<script src="JavaScript/toggle.js?v=20250911221808" defer></script>
+	<script src="JavaScript/snipDiv.js?v=20250911221808" defer></script>
+	<script src="JavaScript/ContextMenu.js?v=20250911221808" defer></script>
+	<script src="JavaScript/setMaker.js?v=20250911221808" defer></script>
+	<script src="JavaScript/dragAndSnap.js?v=20250911221808" defer></script>
+	<script src="JavaScript/ChangeAppearance.js?v=20250911221808" defer></script>
+	<script src="JavaScript/newAuth.js?v=20250911221808" defer></script>
+</body>
+</html>

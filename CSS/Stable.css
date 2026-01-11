@@ -1,0 +1,57 @@
+#EDITarea {
+	display: none;
+}
+
+.utility {
+	left: -100px;
+	top: -100px;
+	display: inline-block;
+	position: absolute;
+}
+
+.astext {
+	font-size: 15px;
+	background: none;
+	box-shadow: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	text-decoration: none;
+	text-shadow: none;
+	color: black;
+	font-weight: bold;
+}
+
+.boyta {
+	font-weight: bold;
+	cursor: pointer;
+}
+
+@keyframes Shine {
+	0% {
+		text-shadow:
+			1px 1px 1px black,
+			-1px -1px 1px black,
+			-1px 1px 1px black,
+			1px -1px 1px black,
+			0px 0px 2px red,
+			0px 0px 5px red,
+			0px 0px 7px red,
+			0px 0px 10px red;
+	}
+
+	50% {
+		text-shadow:
+			1px 1px 1px black,
+			-1px -1px 1px black,
+			-1px 1px 1px black,
+			1px -1px 1px black,
+			0px 0px 4px red,
+			0px 0px 7px red,
+			0px 0px 10px red,
+			0px 0px 15px red,
+			0px 0px 20px red;
+	}
+}
+

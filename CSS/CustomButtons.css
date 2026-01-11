@@ -1,0 +1,155 @@
+#infoOverlay.show {
+	display: block;
+}
+
+#infoDiv {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 60%;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#infoDiv1 {
+	justify-content: space-around;
+	align-items: flex-start;
+	margin-bottom: 20px;
+}
+
+.makerCol {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	background: none;
+	box-shadow: none;
+	width: 50%;
+	gap: 20px;
+}
+
+.makerRow {
+	position: relative;
+	display: flex;
+	background: none;
+	box-shadow: none;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	width: 100%;
+}
+
+.makerCol div, .makerRow div {
+	position: relative;
+	background: none;
+	box-shadow: none;
+}
+
+.makerCol div {
+	padding-top: 10px;
+}
+
+.makerCol div p {
+	padding: 0;
+    padding-top: 10px;
+    margin: 5px auto;
+}
+
+.basicSelection label, .popNoteSelection label {
+	width: 100%;
+}
+
+.upperLineBorder {
+	padding: 0;
+	
+	margin: 5px auto;
+}
+
+#inputLine {
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+    padding: 5px 10px;
+    width: 300px;
+	height: 172px;
+    overflow: visible;
+    background: var(--primary);
+    color: white;
+    outline: 2px solid rgba(0, 0, 0, 0);
+    border: 2px solid var(--primaryD);
+    border-radius: var(--ACSmallBorderRadius);
+    transition: box-shadow 0.2s ease-in-out, outline 0.2s ease-in-out, background 0.2s ease-in-out, border 0.2s ease-in-out;
+    box-shadow: var(--ACInsetShadow), var(--ACSmallShadow);
+}
+
+#inputLine:focus-within {
+    outline: 2px solid rgba(0, 0, 0, 1);
+    box-shadow: var(--ACMediumShadow);
+    background: var(--primaryA);
+    border: 2px solid rgba(255, 255, 255, 1);
+}
+
+#inputLine div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+	
+#inputLine div label {
+    font-weight: bold;
+	margin: 5px;
+}
+
+ #inputLine input[type="text"], #inputLine textarea  {
+	outline: none;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: var(--ACSmallBorderRadius);
+    border: 2px solid rgb(237, 237, 237);
+    transition: box-shadow 0.2s ease-in-out, height 0.25s ease-in-out 0.1s;
+    box-shadow: 0px 2px 6px -1px rgba(0, 0, 0, 0.5);
+    width: 276px;
+}
+
+#inputLine textarea {
+    margin-bottom: 5px;
+	height: 75px;
+	transition: height .2s ease-in-out;
+}
+
+#inputLine #BtnDisplay {
+	margin-top: 10px;
+}
+
+.popDivClass {
+	display: none;
+}	
+
+.popDivClass.show {
+	display: block;
+	position: absolute;
+	cursor: default; 
+	color: black;
+	max-width: 90%;
+	max-height: 90%;
+	min-width: 250px;
+	min-height: 150px;
+	overflow: auto;
+}
+
+.basicSelection {
+	display: none;
+}
+
+.popNoteSelection {
+	display: none;
+	margin-top: 15px;
+}
+
+#pop {
+	display: none;
+}
